@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Moysklad\VendorController;
+use App\Http\Controllers\Moysklad\IframeController;
+use App\Http\Controllers\Moysklad\WidgetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/vendor-endpoint', [VendorController::class, 'endpoint'])->name('vendor.endpoint');
+
+Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
+
+Route::get('/widgets/counterparty-widget', [WidgetController::class, 'counterpartyWidget'])->name(
+    'counterparty.widget'
+);
+Route::get('/widgets/customerorder-widget', [WidgetController::class, 'customerOrderWidget'])->name(
+    'customerorder.widget'
+);
+Route::get('/widgets/demand-widget', [WidgetController::class, 'demandWidget'])->name('demand.widget');
