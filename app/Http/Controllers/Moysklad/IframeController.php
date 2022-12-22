@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 class IframeController extends Controller
 {
 
-    public function index(\Request $request,)
+    public function index(\Request $request,VendorService $vendorService)
     {
 
         $contextKey = $request->get('contextKey');
