@@ -9,7 +9,6 @@ git checkout -- .
 git pull
 php artisan optimize:clear
 "
-
 expect << 'END_EXPECT'
     spawn ssh $env(USER)@$env(HOST) $env(cmd)
     expect "*assword*"

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
+use App\Services\VendorService;
 
 class IframeController extends Controller
 {
@@ -12,15 +13,15 @@ class IframeController extends Controller
 
         info((string)$request->all());
 
-        $contextKey = $request->get('contextKey');
-
-        $employee = vendorApi()->context($contextKey);
-
-        $uid = $employee->uid;
-        $fio = $employee->shortFio;
-        $accountId = $employee->accountId;
-
-        $isAdmin = $employee->permissions->admin->view;
+//        $contextKey = $request->get('contextKey');
+//
+//        $employee = vendorApi()->context($contextKey);
+//
+//        $uid = $employee->uid;
+//        $fio = $employee->shortFio;
+//        $accountId = $employee->accountId;
+//
+//        $isAdmin = $employee->permissions->admin->view;
 
         return view('iframe');
     }
