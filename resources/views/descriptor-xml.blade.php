@@ -5,7 +5,7 @@
         <sourceUrl>{{ route('iframe')  }}</sourceUrl>
     </iframe>
     <vendorApi>
-        <endpointBase>{{ route('vendor.endpoint')  }}</endpointBase>
+        <endpointBase>{{ url('/vendor-endpoint')  }}</endpointBase>
     </vendorApi>
     <access>
         <resource>https://online.moysklad.ru/api/remap/1.2</resource>
