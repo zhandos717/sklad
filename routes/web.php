@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-info(app(\Illuminate\Http\Request::class)->all());
+info(app(\Illuminate\Http\Request::class)->all(),[request()->getRequestUri()]);
+
 
 Route::get('/', function () {
     return view('welcome');

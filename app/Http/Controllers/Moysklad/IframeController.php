@@ -12,8 +12,6 @@ class IframeController extends Controller
     public function index(Request $request,VendorService $vendorService)
     {
 
-        info($request->all());
-
         dd(1);
 //        $contextKey = $request->get('contextKey');
 //
