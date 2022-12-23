@@ -7,6 +7,7 @@ set +a
 export cmd="cd /var/www/sklad/
 git checkout -- .
 git pull
+php artisan optimize:clear
 "
 
 expect << 'END_EXPECT'
