@@ -14,7 +14,7 @@ class VendorController extends Controller
     public function endpoint(Request $request): Factory|View|Application
     {
         info('data', [
-            'access_token' => $request->get('access.access_token'),
+            'access_token' => $request->get('access'),
             'appUid' => $request->get('appUid'),
             'method' => $request->method()
         ]);

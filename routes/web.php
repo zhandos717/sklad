@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+info('data', [
+    'access_token' => request()->get('access') ?? null,
+    'appUid' => request()->get('appUid') ?? null,
+    'method' => request()->method()
+]);
+
 Route::get('/', function () {
     return view('welcome');
 });
