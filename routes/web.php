@@ -15,14 +15,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-info(app(\Illuminate\Http\Request::class)->all(),[request()->getRequestUri()]);
+info('info',[
+    'url'=>request()->getRequestUri(),
+    'input'=>request()->all()
+]);
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/vendor-endpoint', [VendorController::class, 'endpoint'])->name('vendor.endpoint');
+//["/vendor-endpoint/api/moysklad/vendor/1.0/apps/7b9b82f5-4f27-4e25-bc55-6f8717ff66c7/e0be3639-7d4c-11ed-0a80-07f300006563"]
+
+
+Route::get('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{token}/{key}', [VendorController::class, 'endpoint'])->name('vendor.endpoint');
 
 Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
 
