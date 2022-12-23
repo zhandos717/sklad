@@ -3,7 +3,6 @@
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\WidgetController;
-use App\Http\Middleware\RequestLogger;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
