@@ -17,9 +17,9 @@ class IframeController extends Controller
 
         $content = $vendorService->context($contextKey)->json();
 
-//        if (isset($content['errors'])) {
-//            dd($content);
-//        }
+        if (isset($content['errors'])) {
+            dd($content);
+        }
 
 
         return view('iframe', $content)->withHeaders('X-Frame-Options', 'SAMEORIGIN');
