@@ -17,6 +17,7 @@
         input {
             font-size: 24px;
         }
+
         select {
             font-size: 24px;
         }
@@ -30,6 +31,7 @@
             border: red dashed 1px;
             background-color: lightsalmon;
         }
+
         .settings-required::before {
             content: "ТРЕБУЕТСЯ НАСТРОЙКА";
         }
@@ -38,6 +40,7 @@
             border: green dashed 1px;
             background-color: lightgreen;
         }
+
         .ready-for-work::before {
             content: "ПРИЛОЖЕНИЕ ГОТОВО К РАБОТЕ";
         }
@@ -48,50 +51,47 @@
 <h2>Информация о пользователе</h2>
 
 <ul>
-    <li>Текущий пользователь: <?=$uid?> (<?=$fio?>)</li>
-    <li>Идентификатор аккаунта: <?=$accountId?></li>
-    <li>Уровень доступа: <b><?= $isAdmin ? 'администратор аккаунта' : 'простой пользователь'?></b></li>
+    <li>Текущий пользователь: {{ $uid ?? null  }} ({{ $fio ?? null }})</li>
+    <li>Идентификатор аккаунта: {{ $accountId ?? null }}</li>
+    <li>Уровень доступа: <b>{{ isset($isAdmin) ? 'администратор аккаунта' : 'простой пользователь'}}</b></li>
 </ul>
 
 <h2>Состояние приложения</h2>
 
-<div class="info-box <?=$isSettingsRequired ? 'settings-required' : 'ready-for-work'?>">
-    <?php
-    if (!$isSettingsRequired) {
+<div class="info-box {{ isset($isSettingsRequired) ? 'settings-required' : 'ready-for-work' }}">
+
+    @if (isset($isSettingsRequired) && !$isSettingsRequired) {
         ?>
     <p>
-        Сообщение: <?=$infoMessage?><br>
-        Выбран склад: <?=$store?>
+        Сообщение: {{$infoMessage}}<br>
+        Выбран склад: {{$store}}
     </p>
-    <?php } ?>
+    @endif
 </div>
 
 <h2>Форма настроек</h2>
 
-<?php
-if ($isAdmin) {
+
+@if (isset($isAdmin))
+    {
     ?>
 
-<form method="post" action="update-settings.php">
-    Укажите сообщение:
-    <input type="text" size="50" name="infoMessage"><br>
-    Выберите склад:
-    <select name="store">
-            <?php foreach ($storesValues as $v) { ?>
-        <option value="<?=$v?>"><?=$v?></option>
-        <?php } ?>
-    </select><br>
-    <input type="hidden" name="accountId" value="<?=$accountId?>"/>
-    <input type="submit">
-</form>
+    <form method="post" action="update-settings.php">
+        Укажите сообщение:
+        <input type="text" size="50" name="infoMessage"><br>
+        Выберите склад:
+        <select name="store">
+            @foreach ($storesValues as $v)
+                <option value="{{$v}}">{{$v}}</option>
+            @endforeach
+        </select><br>
+        <input type="hidden" name="accountId" value="{{$accountId??null}}"/>
+        <input type="submit">
+    </form>
 
-    <?php
-} else {
-    ?>
-Настройки доступны только администратору аккаунта
-    <?php
-}
-?>
+@else
+    Настройки доступны только администратору аккаунта
+@endif
 
 </body>
 </html>

@@ -11,13 +11,17 @@ class IframeController extends Controller
     /**
      * @throws \Exception
      */
-    public function index(IframeIndexRequest $request,VendorService $vendorService)
+    public function index(IframeIndexRequest $request, VendorService $vendorService)
     {
+        $contextKey = $request->input('contextKey');
 
-       $contextKey =  $request->input('contextKey');
+        $content = $vendorService->context($contextKey)->json();
 
-      dd(  $vendorService->context($contextKey));
+        if(isset($content['errors']))
+        {
+            dd($content);
+        }
 
-        return view('iframe');
+        return view('iframe',$content);
     }
 }
