@@ -3,13 +3,20 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\IframeIndexRequest;
 use App\Services\VendorService;
-use Illuminate\Http\Request;
 
 class IframeController extends Controller
 {
-    public function index(Request $request,VendorService $vendorService)
+    /**
+     * @throws \Exception
+     */
+    public function index(IframeIndexRequest $request,VendorService $vendorService)
     {
+
+       $contextKey =  $request->input('contextKey');
+
+      dd(  $vendorService->context($contextKey));
 
         return view('iframe');
     }
