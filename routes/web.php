@@ -3,6 +3,7 @@
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\WidgetController;
+use App\Http\Middleware\RequestLogger;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
@@ -18,20 +19,24 @@ use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 */
 
 
-Route::put('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}', [VendorController::class, 'endpoint']);
+Route::middleware(RequestLogger::class)->group(function (){
 
-Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
+    Route::put('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}', [VendorController::class, 'endpoint']);
 
-Route::get('/widgets/counterparty-widget', [WidgetController::class, 'counterpartyWidget'])->name(
-    'counterparty.widget'
-);
-Route::get('/widgets/customerorder-widget', [WidgetController::class, 'customerOrderWidget'])->name(
-    'customerorder.widget'
-);
-Route::get('/widgets/demand-widget', [WidgetController::class, 'demandWidget'])->name('demand.widget');
+    Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('/widgets/counterparty-widget', [WidgetController::class, 'counterpartyWidget'])->name(
+        'counterparty.widget'
+    );
+    Route::get('/widgets/customerorder-widget', [WidgetController::class, 'customerOrderWidget'])->name(
+        'customerorder.widget'
+    );
+    Route::get('/widgets/demand-widget', [WidgetController::class, 'demandWidget'])->name('demand.widget');
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::get('logs', [LogViewerController::class, 'index']);
 });
 
-Route::get('logs', [LogViewerController::class, 'index']);
