@@ -3,6 +3,7 @@
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\WidgetController;
+use App\Http\Middleware\FrameHeadersMiddleware;
 use App\Http\Middleware\RequestLogger;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
@@ -23,7 +24,7 @@ Route::middleware(RequestLogger::class)->group(function (){
 
     Route::put('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}', [VendorController::class, 'endpoint']);
 
-    Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
+    Route::get('/iframe', [IframeController::class, 'index'])->name('iframe')->middleware(FrameHeadersMiddleware::class);
 
     Route::get('/widgets/counterparty-widget', [WidgetController::class, 'counterpartyWidget'])->name(
         'counterparty.widget'
