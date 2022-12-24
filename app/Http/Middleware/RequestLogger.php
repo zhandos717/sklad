@@ -18,8 +18,9 @@ class RequestLogger
     public function handle(Request $request, Closure $next)
     {
         Log::channel('requests')->info(json_encode([
-            'url'=>\Str::remove($request->getRequestUri(),'\\'),
+            'url'=>$request->getRequestUri(),
             'method'=>$request->method(),
+            'input'=>$request->input(),
             'body'=>$request->json(),
             'header'=>$request->header()
         ],JSON_PRETTY_PRINT));
