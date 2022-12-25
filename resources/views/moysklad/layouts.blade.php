@@ -7,11 +7,11 @@
     <style>
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Selectivity.js/2.1.0/selectivity-full.min.css">
-    <link rel="stylesheet" href="{{asset('assets/css/uikit.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <link rel="stylesheet" href="/assets/css/uikit.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="assets/js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Selectivity.js/2.1.0/selectivity-full.min.js"></script>
-    <script src="{{asset('assets/js/uikit.js')}}"></script>
+    <script src="assets/js/uikit.js"></script>
 </head>
 <body>
 <div class="container">

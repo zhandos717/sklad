@@ -6,6 +6,7 @@ use App\Http\Controllers\Moysklad\WidgetController;
 use App\Http\Controllers\Moysklad\SettingController;
 use App\Http\Middleware\FrameHeadersMiddleware;
 use App\Http\Middleware\RequestLogger;
+use App\Services\VendorService;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
@@ -46,6 +47,14 @@ Route::middleware(RequestLogger::class)->group(function () {
     });
 
     Route::get('logs', [LogViewerController::class, 'index']);
+
+
+    Route::get('context', function () {
+        $contextKey = request()->input('contextKey');
+        $content = app(VendorService::class)->context($contextKey)->json();
+
+        dd($content);
+    });
 
     Route::post('update-settings', [SettingController::class, 'updateSettings'])
         ->name('update.settings');
