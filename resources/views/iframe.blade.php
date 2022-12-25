@@ -51,7 +51,7 @@
 <h2>Информация о пользователе</h2>
 
 <ul>
-    <li>Текущий пользователь: {{ $uid ?? null  }} ({{ $fio ?? null }})</li>
+    <li>Текущий пользователь: {{ $uid ?? null  }} ({{ $fullName ?? null }})</li>
     <li>Идентификатор аккаунта: {{ $accountId ?? null }}</li>
     <li>Уровень доступа: <b>{{ isset($isAdmin) ? 'администратор аккаунта' : 'простой пользователь'}}</b></li>
 </ul>
@@ -60,38 +60,32 @@
 
 <div class="info-box {{ isset($isSettingsRequired) ? 'settings-required' : 'ready-for-work' }}">
 
-    @if (isset($isSettingsRequired) && !$isSettingsRequired) {
-        ?>
     <p>
-        Сообщение: {{$infoMessage}}<br>
-        Выбран склад: {{$store}}
+        Сообщение: {{$infoMessage ?? null}}<br>
+        Выбран склад: {{$store ?? null}}
     </p>
-    @endif
+
 </div>
 
 <h2>Форма настроек</h2>
 
-
-@if (isset($isAdmin))
-    {
-    ?>
-
-    <form method="post" action="update-settings.php">
-        Укажите сообщение:
-        <input type="text" size="50" name="infoMessage"><br>
-        Выберите склад:
-        <select name="store">
+<form method="post" action="{{ route('update.settings')  }}">
+    @csrf
+    Укажите сообщение:
+    <input type="text" size="50" name="infoMessage"><br>
+    Выберите склад:
+    <select name="store">
+        @if(isset($storesValues))
             @foreach ($storesValues as $v)
                 <option value="{{$v}}">{{$v}}</option>
             @endforeach
-        </select><br>
-        <input type="hidden" name="accountId" value="{{$accountId??null}}"/>
-        <input type="submit">
-    </form>
+        @endif
+    </select><br>
+    <input type="hidden" name="accountId" value="{{$accountId??null}}"/>
+    <input type="submit">
+</form>
 
-@else
-    Настройки доступны только администратору аккаунта
-@endif
+Настройки доступны только администратору аккаунта
 
 </body>
 </html>

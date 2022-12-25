@@ -3,6 +3,7 @@
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\WidgetController;
+use App\Http\Controllers\Moysklad\SettingController;
 use App\Http\Middleware\FrameHeadersMiddleware;
 use App\Http\Middleware\RequestLogger;
 use Illuminate\Support\Facades\Route;
@@ -20,25 +21,33 @@ use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 */
 
 
-Route::middleware(RequestLogger::class)->group(function (){
-
-    Route::put('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}', [VendorController::class, 'endpoint']);
+Route::middleware(RequestLogger::class)->group(function () {
+    Route::put(
+        '/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}',
+        [VendorController::class, 'endpoint']
+    );
 
     Route::get('/iframe', [IframeController::class, 'index'])->name('iframe')
         ->middleware(FrameHeadersMiddleware::class);
 
-    Route::get('/widgets/counterparty-widget', [WidgetController::class, 'counterpartyWidget'])->name(
-        'counterparty.widget'
-    );
-    Route::get('/widgets/customerorder-widget', [WidgetController::class, 'customerOrderWidget'])->name(
-        'customerorder.widget'
-    );
-    Route::get('/widgets/demand-widget', [WidgetController::class, 'demandWidget'])->name('demand.widget');
+    Route::prefix('widgets')->controller(WidgetController::class)->group(function () {
+        Route::get('counterparty-widget', 'counterpartyWidget')->name(
+            'counterparty.widget'
+        );
+        Route::get('customerorder-widget', 'customerOrderWidget')->name(
+            'customerorder.widget'
+        );
+        Route::get('demand-widget', 'demandWidget')->name('demand.widget');
+    });
+
 
     Route::get('/', function () {
         return view('welcome');
     });
 
     Route::get('logs', [LogViewerController::class, 'index']);
+
+    Route::post('update-settings', [SettingController::class, 'updateSettings'])
+        ->name('update.settings');
 });
 

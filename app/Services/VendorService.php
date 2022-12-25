@@ -7,6 +7,7 @@ use Firebase\JWT\JWT;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\Request;
 
 class VendorService
 {
@@ -16,15 +17,15 @@ class VendorService
      */
     function context(string $contextKey): PromiseInterface|Response
     {
-        return $this->send('POST', '/context/' . $contextKey);
+        return $this->send(Request::METHOD_POST, '/context/' . $contextKey);
     }
 
     function updateAppStatus(string $appId, string $accountId, string $status): PromiseInterface|Response
     {
         return $this->send(
-            'PUT',
+            Request::METHOD_PUT,
             "/apps/$appId/$accountId/status",
-            "{\"status\": \"$status\"}"
+            ['status' => $status]
         );
     }
 
@@ -43,7 +44,7 @@ class VendorService
                 $method,
                 $path,
                 [
-                    'body' => $body
+                    'body' => json_encode($body)
                 ]
             );
     }
@@ -62,5 +63,4 @@ class VendorService
 
         return JWT::encode($token, config('moysklad.secret_key'), 'HS256');
     }
-
 }

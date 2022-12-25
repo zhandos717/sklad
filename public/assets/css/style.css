@@ -1,0 +1,45 @@
+.hidden {
+    display:none;
+}
+
+.icon.icon__add {
+    width:14px;
+    height:14px;
+    background:url("../img/ms_icons.png") no-repeat -588px -15px;
+    border:0;
+    vertical-align: text-bottom;
+    cursor:pointer;
+}
+.icon.icon__delete {
+    width:14px;
+    height:13px;
+    background:url("../img/ms_icons.png") no-repeat -532px -15px;
+    border:0;
+    vertical-align: text-bottom;
+    cursor:pointer;
+}
+.icon.icon__up {
+    width:7px;
+    height:7px;
+    background:url("../img/ms_icons.png") no-repeat -332px -164px;
+    border:0;
+    vertical-align: text-bottom;
+    cursor:pointer;
+}
+.icon.icon__down {
+    width:7px;
+    height:7px;
+    background:url("../img/ms_icons.png") no-repeat -339px -164px;
+    border:0;
+    vertical-align: text-bottom;
+    cursor:pointer;
+}
+
+.popup__body {
+    overflow-y: auto!important;
+    max-height: 90%;
+}
+body {
+    margin:0px 30px 50px 30px;
+    padding-bottom:30px;
+}
