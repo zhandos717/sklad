@@ -17,7 +17,9 @@ class FrameHeadersMiddleware
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        $response->headers->set('X-Frame-Options', 'SAMEORIGIN', false);
+        $response->headers->remove('X-Frame-Options');
+        $response->headers->remove('X-Powered-By');
+
         return $response;
     }
 }

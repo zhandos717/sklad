@@ -24,7 +24,8 @@ Route::middleware(RequestLogger::class)->group(function (){
 
     Route::put('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}', [VendorController::class, 'endpoint']);
 
-    Route::get('/iframe', [IframeController::class, 'index'])->name('iframe')->middleware(FrameHeadersMiddleware::class);
+    Route::get('/iframe', [IframeController::class, 'index'])->name('iframe')
+        ->middleware(FrameHeadersMiddleware::class);
 
     Route::get('/widgets/counterparty-widget', [WidgetController::class, 'counterpartyWidget'])->name(
         'counterparty.widget'
