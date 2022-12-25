@@ -4,25 +4,21 @@ namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\IframeIndexRequest;
-use App\Services\VendorService;
+use App\Services\Moysklad\UserContextLoaderService;
+use App\Services\Moysklad\VendorService;
 
 class IframeController extends Controller
 {
     /**
      * @throws \Exception
      */
-    public function index(IframeIndexRequest $request, VendorService $vendorService)
+    public function index(UserContextLoaderService $userContextLoaderService)
     {
-        $contextKey = $request->input('contextKey');
+        if(isset($userContextLoaderService->employee->errors)){
+            dump($userContextLoaderService->employee->errors);
+        };
 
-        $content = $vendorService->context($contextKey)->json();
 
-       // dd($content);
-
-        //if (isset($content['errors'])) {
-          //  dump($content);
-        //}
-
-        return view('iframe', $content);
+        return view('iframe', collect($userContextLoaderService->employee)->toArray());
     }
 }

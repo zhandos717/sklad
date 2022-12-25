@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Moysklad\EndpointResource;
-use App\Services\MoySkladService;
-use App\Services\VendorService;
+use App\Services\Moysklad\MoySkladService;
+use App\Services\Moysklad\VendorService;
 use Illuminate\Http\Request;
 
 class VendorController extends Controller

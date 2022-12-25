@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
-use App\Services\MoySkladService;
-use App\Services\VendorService;
+use App\Services\Moysklad\MoySkladService;
+use App\Services\Moysklad\VendorService;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
