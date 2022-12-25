@@ -12,6 +12,8 @@
     <script src="/assets/js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Selectivity.js/2.1.0/selectivity-full.min.js"></script>
     <script src="/assets/js/uikit.js"></script>
+    @yield('styles')
+    @yield('js')
 </head>
 <body>
 <div class="container">
