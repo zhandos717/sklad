@@ -20,9 +20,15 @@ class WidgetController extends Controller
     {
         // $object = jsonApi()->getObject($entity, $objectId
 
-        dump(collect($userContextLoaderService->employee)->toArray());
+        //dump(collect($userContextLoaderService->employee)->toArray());
 
-        return view('moysklad.widgets.demo', collect($userContextLoaderService->employee)->toArray());
+        return view(
+            'moysklad.widgets.demo',
+            array_merge(
+                collect($userContextLoaderService->employee)->toArray(),
+                ['entity' => 'customerorder']
+            )
+        );
         //return view('moysklad.widgets.customer-order');
     }
 

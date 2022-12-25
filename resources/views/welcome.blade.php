@@ -9,12 +9,10 @@
 </head>
 <body>
 
-<iframe src="http://localhost/iframe?contextKey=75041b0c3a4512977a5205242f538c4c995d9108"
-        width="100%" height="100%">
-</iframe>
-<hr>
-<iframe src="http://localhost/widgets/customerorder-widget?contextKey=75041b0c3a4512977a5205242f538c4c995d9108"
-        width="100%" height="100%">
+<iframe
+    width="500px"
+    height="800px"
+    src="http://localhost/widgets/customerorder-widget?contextKey={{ request()->get('contextKey') }}">
 </iframe>
 </body>
 </html>
