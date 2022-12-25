@@ -33,7 +33,6 @@
     <script>
         const hostWindow = window.parent;
 
-        console.log(window)
 
         window.addEventListener("message", function (event) {
             const receivedMessage = event.data;
@@ -45,8 +44,8 @@
                 oReq.addEventListener("load", function () {
                     window.document.getElementById("object").innerHTML = this.responseText;
                 });
-                // В демо приложении отсутствует авторизация (между виджетом и бэкендом) - в реальных приложениях не делайте так (должна быть авторизация)!
-                oReq.open("GET", '/widgets/get-object.php?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
+
+                oReq.open("GET", '/widgets/get-item?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
                 oReq.send();
 
                 window.setTimeout(function () {

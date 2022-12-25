@@ -178,8 +178,7 @@
             action="../knopki/click.php?accountId=e0be3639-7d4c-11ed-0a80-07f300006563&uid=admin%40zhan96&entity=customerorder&token=7c4d83ee4b3ce4fa922a1ac9292f59799a7f1a2a&objectId=83f64870-8457-11ed-0a80-0cd10042362c"
             id="click-form" method="POST">
             @csrf
-            <button class="button require-popup" name="buttonId" value="256">Печать кассового чека</button>
-            <button class="button" name="buttonId" value="257">Печать товарного чека</button>
+            <button class="button require-popup" name="buttonId" value="256"> Реализовать</button>
         </form>
     </div>
 

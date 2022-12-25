@@ -12,6 +12,36 @@
 
 namespace App\Models{
 /**
+ * App\Models\MoySkladConfig
+ *
+ * @property int $id
+ * @property string|null $app_id
+ * @property string|null $account_id
+ * @property string|null $info_message
+ * @property string|null $store
+ * @property string|null $access_token
+ * @property int|null $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereAccessToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereAccountId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereAppId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereInfoMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereStore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperMoySkladConfig {}
+}
+
+namespace App\Models{
+/**
  * App\Models\User
  *
  * @property int $id

@@ -5,7 +5,7 @@ namespace App\Http\Resources\Moysklad;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class
-EndpointResource extends JsonResource
+VendorResource extends JsonResource
 {
 
     public static $wrap = null;

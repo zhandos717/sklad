@@ -25,8 +25,14 @@ use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 Route::middleware(RequestLogger::class)->group(function () {
     Route::put(
         '/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}',
-        [VendorController::class, 'endpoint']
+        [VendorController::class, 'store']
     );
+
+    Route::delete(
+        '/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}',
+        [VendorController::class, 'destroy']
+    );
+
 
     Route::get('/iframe', [IframeController::class, 'index'])->name('iframe')
         ->middleware(FrameHeadersMiddleware::class);
@@ -39,6 +45,8 @@ Route::middleware(RequestLogger::class)->group(function () {
             'customerorder.widget'
         );
         Route::get('demand-widget', 'demandWidget')->name('demand.widget');
+
+        Route::get('get-item', 'getItem')->name('demand.widget');
     });
 
 

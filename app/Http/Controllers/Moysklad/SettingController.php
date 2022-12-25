@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
-use App\Services\Moysklad\MoySkladService;
+use App\Models\MoySkladConfig;
 use App\Services\Moysklad\VendorService;
 use Illuminate\Http\Request;
 
@@ -11,25 +11,23 @@ class SettingController extends Controller
 {
     public function updateSettings(Request $request, VendorService $vendorService)
     {
-        $accountId = $request->input('accountId');
-        $infoMessage = $request->input('infoMessage');
-        $store = $request->input('store');
-
-        $app = MoySkladService::loadApp($accountId);
-        $app->infoMessage = $infoMessage;
-        $app->store = $store;
-
-        $notify = $app->status != MoySkladService::ACTIVATED;
-
-        $app->status = MoySkladService::ACTIVATED;
+        $moySklad = MoySkladConfig::updateOrCreate(
+            [
+                'access_token' => $request->get('access')[0]['access_token'],
+                'status' => MoySkladConfig::ACTIVATED,
+                'info_message' => $request->input('infoMessage'),
+                'store' => $request->input('store')
+            ], [
+                'app_id' => $request->input('accountId'),
+                'account_id' => $request->input('accountId'),
+            ]
+        );
 
         $vendorService->updateAppStatus(
             config('moysklad.app_id'),
-            $accountId,
-            $app->getStatusName()
+            $moySklad->account_id,
+            $moySklad->status
         );
-
-        $app->persist();
 
         echo 'Настройки обновлены, перезагрузите приложение';
     }

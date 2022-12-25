@@ -9,7 +9,7 @@ use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\HttpFoundation\Request;
 
-class VendorService
+class VendorService extends ClientService
 {
 
     /**
@@ -17,50 +17,24 @@ class VendorService
      */
     function context(string $contextKey): PromiseInterface|Response
     {
-        return $this->send(Request::METHOD_POST, '/context/' . $contextKey);
+        return $this->send(Request::METHOD_POST, '/context/' . $contextKey, $this->buildJWT());
     }
 
+    /**
+     * @throws Exception
+     */
     function updateAppStatus(string $appId, string $accountId, string $status): PromiseInterface|Response
     {
         return $this->send(
             Request::METHOD_PUT,
             "/apps/$appId/$accountId/status",
+            $this->buildJWT(),
             ['status' => $status]
         );
     }
 
-    /**
-     * @throws Exception
-     */
-    private function send(
-        string $method,
-        $path,
-        $body = null
-    ): PromiseInterface|Response {
-        return Http::baseUrl(config('moysklad.vendor_api_endpoint_url'))
-            ->contentType('application/json')
-            ->withToken($this->buildJWT())
-            ->send(
-                $method,
-                $path,
-                [
-                    'body' => json_encode($body)
-                ]
-            );
-    }
-
-    /**
-     * @throws Exception
-     */
-    private function buildJWT(): string
+    protected function baseUrl(): string
     {
-        $token = [
-            "sub" => config('moysklad.app_uid'),
-            "iat" => time(),
-            "exp" => time() + 300,
-            "jti" => bin2hex(random_bytes(32))
-        ];
-
-        return JWT::encode($token, config('moysklad.secret_key'), 'HS256');
+        return config('moysklad.vendor_api_endpoint_url');
     }
 }
