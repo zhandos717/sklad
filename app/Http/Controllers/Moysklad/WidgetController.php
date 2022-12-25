@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\WidgetRequest;
 use App\Models\MoySkladConfig;
-use App\Services\Moysklad\MoySkladService;
 use App\Services\Moysklad\UserContextLoaderService;
-use App\Services\Moysklad\VendorService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -41,17 +38,10 @@ class WidgetController extends Controller
         $entity = $request->input('entity');
         $objectId = $request->input('objectId');
 
-        $app = MoySkladService::loadApp($accountId);
+        $moySklad = MoySkladConfig::where('accountId', $accountId)->first();
 
-
-        dd(
-            MoySkladConfig::all());
-
-        dd($app);
 
        // $object = jsonApi()->getObject($entity, $objectId);
-
-
     }
 
     public function demandWidget()
