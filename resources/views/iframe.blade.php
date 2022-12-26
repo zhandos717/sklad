@@ -1,91 +1,108 @@
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8">
+@extends('moysklad.layouts')
 
-    <title>DummyApp</title>
-    <meta name="description" content="DummyApp for Marketplace of MoySklad">
-    <meta name="author" content="onekludov@moysklad.ru">
+@section('styles')
 
     <style>
-        body {
-            line-height: 1.5;
-            font-size: 24px;
-            padding-bottom: 200px;
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
 
-        input {
-            font-size: 24px;
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
         }
 
-        select {
-            font-size: 24px;
-        }
-
-        .info-box {
-            display: inline-block;
-            padding: 25px;
-        }
-
-        .settings-required {
-            border: red dashed 1px;
-            background-color: lightsalmon;
-        }
-
-        .settings-required::before {
-            content: "ТРЕБУЕТСЯ НАСТРОЙКА";
-        }
-
-        .ready-for-work {
-            border: green dashed 1px;
-            background-color: lightgreen;
-        }
-
-        .ready-for-work::before {
-            content: "ПРИЛОЖЕНИЕ ГОТОВО К РАБОТЕ";
+        .container {
+            max-width: 960px;
         }
     </style>
-</head>
-<body>
 
-<h2>Информация о пользователе</h2>
+@endsection
 
-<ul>
-    <li>Текущий пользователь: {{ $uid ?? null  }} ({{ $fullName ?? null }})</li>
-    <li>Идентификатор аккаунта: {{ $accountId ?? null }}</li>
-    <li>Уровень доступа: <b>{{ isset($isAdmin) ? 'администратор аккаунта' : 'простой пользователь'}}</b></li>
-</ul>
+@section('content')
 
-<h2>Состояние приложения</h2>
+    <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Информация о пользователе</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Tекущий пользователь: </h6>
+                        <small class="text-muted">{{ $uid ?? null  }}</small>
+                    </div>
+                    <span class="text-muted">({{ $fullName ?? null }})/span>
+                </li>
 
-<div class="info-box {{ isset($isSettingsRequired) ? 'settings-required' : 'ready-for-work' }}">
+            </ul>
 
-    <p>
-        Сообщение: {{$infoMessage ?? null}}<br>
-        Выбран склад: {{$store ?? null}}
-    </p>
+        </div>
+        <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Форма настроек</h4>
+            <form method="post" action="{{ route('update.settings')  }}" class="needs-validation" novalidate="">
+                @csrf
+                <input type="hidden" name="accountId" value="{{$accountId ?? null}}"/>
 
-</div>
+                <div class="row gy-3">
+                    <div class="col-md-12">
+                        <label for="cc-name" class="form-label">Токен WIPON</label>
+                        <input type="text" class="form-control" id="token" placeholder="" required>
+                        <small class="text-muted">заполните поле</small>
+                        <div class="invalid-feedback">
+                            Name on card is required
+                        </div>
+                    </div>
 
-<h2>Форма настроек</h2>
+                </div>
+                <hr class="my-4">
+                <button class="w-100 btn button button--success btn-lg text-white" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
 
-<form method="post" action="{{ route('update.settings')  }}">
-    @csrf
-    Укажите сообщение:
-    <input type="text" size="50" name="infoMessage"><br>
-    Выберите склад:
-    <select name="store">
-        @if(isset($storesValues))
-            @foreach ($storesValues as $v)
-                <option value="{{$v}}">{{$v}}</option>
-            @endforeach
-        @endif
-    </select><br>
-    <input type="hidden" name="accountId" value="{{$accountId??null}}"/>
-    <input type="submit">
-</form>
 
-Настройки доступны только администратору аккаунта
+    <h2>Форма настроек</h2>
+    <div class="markup-example js-example">
+        <form method="post" action="{{ route('update.settings')  }}">
+            @csrf
 
-</body>
-</html>
+
+            <label>
+                Введите токен Prosklada:
+
+                <input class="ui-input" type="text" name="token">
+            </label>
+
+            <button class="button button--success">Сохранить</button>
+        </form>
+    </div>
+    Настройки доступны только администратору аккаунта
+
+    <h2>Информация о пользователе</h2>
+
+    <ul>
+        <li>Текущий пользователь:  </li>
+        <li>Идентификатор аккаунта: {{ $accountId ?? null }}</li>
+        <li>Уровень доступа: <b>{{ isset($isAdmin) ? 'администратор аккаунта' : 'простой пользователь'}}</b></li>
+    </ul>
+
+    <h2>Состояние приложения</h2>
+
+    <div class="info-box {{ isset($isSettingsRequired) ? 'settings-required' : 'ready-for-work' }}">
+
+        <p>
+            Сообщение: {{$infoMessage ?? null}}<br>
+            Выбран склад: {{$store ?? null}}
+        </p>
+
+    </div>
+
+@endsection
+
+
