@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Services\Moysklad\UserContextLoaderService;
 use Illuminate\Support\ServiceProvider;
-use Request;
 use URL;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,8 +19,7 @@ class AppServiceProvider extends ServiceProvider
             return new UserContextLoaderService(request()->get('contextKey'));
         });
 
-        if (Request::server('HTTP_X_FORWARDED_PROTO') == 'https')
-        {
+        if (config('app.env') === 'production') {
             URL::forceScheme('https');
         }
     }
