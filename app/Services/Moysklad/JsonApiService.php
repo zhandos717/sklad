@@ -11,12 +11,13 @@ class JsonApiService extends ClientService
 
     private $accessToken;
 
-    function __construct(string $accessToken)
+    public function setToken(string $accessToken): self
     {
         $this->accessToken = $accessToken;
+        return $this;
     }
 
-    function stores()
+    function stores(): PromiseInterface|Response
     {
         return $this->send(
             'GET',
@@ -25,7 +26,7 @@ class JsonApiService extends ClientService
         );
     }
 
-    function getObject($entity, $objectId)
+    function getItem($entity, $objectId): PromiseInterface|Response
     {
         return $this->send(
             'GET',

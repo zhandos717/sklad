@@ -2,19 +2,24 @@
 
 namespace App\Services\Moysklad;
 
+use Exception;
+
 class UserContextLoaderService
 {
 
-    public $employee;
+    public array|object $employee;
+
     /**
-     * @throws \Exception
+     * @param $contextKey
+     * @throws Exception
      */
     public function __construct($contextKey)
     {
-       $this->employee = app(VendorService::class)->context($contextKey)->object();
+        $this->employee = app(VendorService::class)->context($contextKey)->object();
     }
 
-    public function isAdmin(){
+    public function isAdmin()
+    {
         return $this->employee->permissions->admin->view ?? null;
     }
 

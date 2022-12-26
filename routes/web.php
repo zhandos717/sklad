@@ -20,38 +20,27 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(RequestLogger::class)->group(function () {
-    Route::put(
+    Route::apiResource(
         '/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}',
-        [VendorController::class, 'store']
-    );
-
-    Route::delete(
-        '/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}',
-        [VendorController::class, 'destroy']
-    );
+        VendorController::class
+    )->only(['store', 'destroy']);
 
 
     Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
 
-    Route::prefix('widgets')->controller(WidgetController::class)->group(function () {
-        Route::get('counterparty-widget', 'counterpartyWidget')->name(
-            'counterparty.widget'
-        );
-        Route::get('customerorder-widget', 'customerOrderWidget')->name(
-            'customerorder.widget'
-        );
-        Route::get('demand-widget', 'demandWidget')->name('demand.widget');
+    Route::prefix('widgets')->controller(WidgetController::class)
+        ->group(function () {
+            Route::get('customerorder-widget', 'customerOrderWidget')->name(
+                'customerorder.widget'
+            );
+            Route::get('get-item', 'getItem')->name('demand.widget');
+        });
 
-        Route::get('get-item', 'getItem')->name('demand.widget');
-    });
-
+    Route::get('update-settings', [SettingController::class, 'updateSettings'])
+        ->name('update.settings');
 
     Route::get('/', function () {
         return view('welcome');
     });
-
-
-    Route::get('update-settings', [SettingController::class, 'updateSettings'])
-        ->name('update.settings');
 });
 
