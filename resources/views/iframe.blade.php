@@ -53,7 +53,6 @@
                         </div>
                     </div>
                 </li>
-
                 <li class="list-group-item d-flex justify-content-between lh-sm">
                     <div>
                         <h6 class="my-0">Уровень доступа: </h6>
@@ -61,20 +60,18 @@
                     <span
                         class="text-muted">{{ isset($isAdmin) ? 'администратор аккаунта' : 'простой пользователь'}}</span>
                 </li>
-
-
             </ul>
-
         </div>
         <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Форма настроек</h4>
-            <form method="post" action="{{ route('update.settings')  }}" class="needs-validation" novalidate="">
+            <form method="get" action="{{ route('update.settings')  }}" class="needs-validation" novalidate="">
                 @csrf
                 <input type="hidden" name="accountId" value="{{$accountId ?? null}}"/>
                 <div class="row gy-3">
                     <div class="col-md-12">
                         <label for="cc-name" class="form-label">Токен WIPON</label>
-                        <label for="token"></label><input type="text" class="form-control" id="token" placeholder="" required>
+                        <label for="token"></label>
+                        <input type="text" class="form-control" id="token" placeholder="" required="required">
                         <small class="text-muted">заполните поле</small>
                         <div class="invalid-feedback">
                             Name on card is required
@@ -82,7 +79,7 @@
                     </div>
                 </div>
                 <hr class="my-4">
-                <button class="w-100 btn button button--success btn-lg text-white" type="submit">Сохранить</button>
+                <button class="btn button button--success btn-lg text-white" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
