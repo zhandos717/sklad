@@ -25,6 +25,19 @@ Route::middleware(RequestLogger::class)->group(function () {
         VendorController::class
     )->only(['store', 'destroy']);
 
+    Route::controller(VendorController::class)
+        ->prefix('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}')
+        ->group(function () {
+            Route::put(
+                '/',
+                'store'
+            );
+            Route::delete(
+                '/',
+                'destroy'
+            );
+        });
+
 
     Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
 
