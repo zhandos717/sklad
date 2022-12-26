@@ -13,6 +13,10 @@ class SettingController extends Controller
     public function updateSettings(UpdateSettingsRequest $request, VendorService $vendorService)
     {
 
+        dd(config('app.env'));
+        dump(asset('/'));
+        dd($request->getAccessToken());
+
         $moySklad = MoySkladConfig::updateOrCreate(
             [
                 'access_token' => isset($request->get('access')[0]['access_token']) ? $request->get(
