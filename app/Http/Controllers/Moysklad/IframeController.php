@@ -18,7 +18,9 @@ class IframeController extends Controller
             dump($userContextLoaderService->employee->errors);
         };
 
-
-        return view('iframe', collect($userContextLoaderService->employee)->toArray());
+        return view('iframe', array_merge(
+            collect($userContextLoaderService->employee)->toArray(),
+            ['isAdmin' =>$userContextLoaderService->isAdmin() ]
+        ));
     }
 }
