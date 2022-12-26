@@ -71,17 +71,15 @@
             <form method="post" action="{{ route('update.settings')  }}" class="needs-validation" novalidate="">
                 @csrf
                 <input type="hidden" name="accountId" value="{{$accountId ?? null}}"/>
-
                 <div class="row gy-3">
                     <div class="col-md-12">
                         <label for="cc-name" class="form-label">Токен WIPON</label>
-                        <input type="text" class="form-control" id="token" placeholder="" required>
+                        <label for="token"></label><input type="text" class="form-control" id="token" placeholder="" required>
                         <small class="text-muted">заполните поле</small>
                         <div class="invalid-feedback">
                             Name on card is required
                         </div>
                     </div>
-
                 </div>
                 <hr class="my-4">
                 <button class="w-100 btn button button--success btn-lg text-white" type="submit">Сохранить</button>

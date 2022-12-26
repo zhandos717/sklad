@@ -15,7 +15,7 @@ class UserContextLoaderService
     }
 
     public function isAdmin(){
-        return $this->employee->permissions->admin->view;
+        return $this->employee->permissions->admin->view ?? null;
     }
 
 }

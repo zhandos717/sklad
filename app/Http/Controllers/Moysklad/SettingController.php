@@ -3,22 +3,23 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateSettingsRequest;
 use App\Models\MoySkladConfig;
 use App\Services\Moysklad\VendorService;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    public function updateSettings(Request $request, VendorService $vendorService)
+    public function updateSettings(UpdateSettingsRequest $request, VendorService $vendorService)
     {
         $moySklad = MoySkladConfig::updateOrCreate(
             [
                 'access_token' => $request->get('access')[0]['access_token'],
-                'status' => MoySkladConfig::ACTIVATED,
+                'status'       => MoySkladConfig::ACTIVATED,
                 'info_message' => $request->input('infoMessage'),
-                'store' => $request->input('store')
+                'store'        => $request->input('store')
             ], [
-                'app_id' => $request->input('accountId'),
+                'app_id' => $request->input('appId'),
                 'account_id' => $request->input('accountId'),
             ]
         );

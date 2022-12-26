@@ -4,11 +4,8 @@ use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\SettingController;
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\WidgetController;
-use App\Http\Middleware\FrameHeadersMiddleware;
 use App\Http\Middleware\RequestLogger;
-use App\Services\Moysklad\VendorService;
 use Illuminate\Support\Facades\Route;
-use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +31,7 @@ Route::middleware(RequestLogger::class)->group(function () {
     );
 
 
-    Route::get('/iframe', [IframeController::class, 'index'])->name('iframe')
-        ->middleware(FrameHeadersMiddleware::class);
+    Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
 
     Route::prefix('widgets')->controller(WidgetController::class)->group(function () {
         Route::get('counterparty-widget', 'counterpartyWidget')->name(
@@ -54,17 +50,8 @@ Route::middleware(RequestLogger::class)->group(function () {
         return view('welcome');
     });
 
-    Route::get('logs', [LogViewerController::class, 'index']);
 
-
-    Route::get('context', function () {
-        $contextKey = request()->input('contextKey');
-        $content = app(VendorService::class)->context($contextKey)->json();
-
-        dd($content);
-    });
-
-    Route::post('update-settings', [SettingController::class, 'updateSettings'])
+    Route::get('update-settings', [SettingController::class, 'updateSettings'])
         ->name('update.settings');
 });
 
