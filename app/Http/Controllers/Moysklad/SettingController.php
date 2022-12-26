@@ -6,16 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateSettingsRequest;
 use App\Models\MoySkladConfig;
 use App\Services\Moysklad\VendorService;
-use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
     public function updateSettings(UpdateSettingsRequest $request, VendorService $vendorService)
     {
-
-        dd(config('app.env'));
-        dump(asset('/'));
-        dd($request->getAccessToken());
 
         $moySklad = MoySkladConfig::updateOrCreate(
             [

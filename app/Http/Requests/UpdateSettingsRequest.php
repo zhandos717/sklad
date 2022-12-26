@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Requests;
 
@@ -26,8 +26,9 @@ class UpdateSettingsRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'accountId'   => 'required|string',
+            'appId'       => 'required|string',
             'contextKey'  => 'sometimes|required|string',
-            'accountId'   => 'sometimes|required|string',
             'infoMessage' => 'sometimes|required|string',
             'store'       => 'sometimes|required|string',
             'status'      => 'sometimes|required|string',
@@ -39,6 +40,4 @@ class UpdateSettingsRequest extends FormRequest
     {
         return $this->input('access');
     }
-
-
 }
