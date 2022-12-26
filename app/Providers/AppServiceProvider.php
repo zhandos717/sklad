@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Services\Moysklad\UserContextLoaderService;
 use Illuminate\Support\ServiceProvider;
+use Request;
+use URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(UserContextLoaderService::class, function () {
             return new UserContextLoaderService(request()->get('contextKey'));
         });
+
+        if (Request::server('HTTP_X_FORWARDED_PROTO') == 'https')
+        {
+            URL::forceScheme('https');
+        }
     }
 
     /**

@@ -34,4 +34,11 @@ class UpdateSettingsRequest extends FormRequest
             'access'      => 'sometimes|required|array',
         ];
     }
+
+    public function getAccessToken()
+    {
+        return $this->input('access');
+    }
+
+
 }
