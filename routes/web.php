@@ -49,6 +49,9 @@ Route::middleware(RequestLogger::class)->group(function () {
     Route::get('update-settings', [SettingController::class, 'updateSettings'])
         ->name('update.settings');
 
+    Route::post('update-settings', [SettingController::class, 'updateSettings'])
+        ->name('update.settings');
+
     Route::post('config', [ConfigController::class, 'store'])
         ->name('config.store');
 
