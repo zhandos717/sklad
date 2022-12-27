@@ -4,6 +4,7 @@ use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\SettingController;
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\WidgetController;
+use App\Http\Controllers\Moysklad\ConfigController;
 use App\Http\Middleware\RequestLogger;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,9 @@ Route::middleware(RequestLogger::class)->group(function () {
 
     Route::get('update-settings', [SettingController::class, 'updateSettings'])
         ->name('update.settings');
+
+    Route::post('config', [ConfigController::class, 'store'])
+        ->name('config.store');
 
     Route::get('/', function () {
         return view('welcome');

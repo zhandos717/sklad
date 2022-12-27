@@ -48,10 +48,10 @@
             "php artisan ide-helper:models -M"
         ],
         "phpcs": [
-            "phpcs --standard=PSR2 --colors app/"
+            "phpcs --standard=PSR12 --colors app/"
         ],
         "phpcbf": [
-            "phpcbf --standard=PSR2 --colors app/"
+            "phpcbf --standard=PSR12 --colors app/"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
