@@ -20,10 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(RequestLogger::class)->group(function () {
-    Route::apiResource(
-        '/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}',
-        VendorController::class
-    )->only(['store', 'destroy']);
 
     Route::controller(VendorController::class)
         ->prefix('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}')
