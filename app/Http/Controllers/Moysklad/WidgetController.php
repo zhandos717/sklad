@@ -48,5 +48,4 @@ class WidgetController extends Controller
 
         return new ItemResource($item);
     }
-
 }

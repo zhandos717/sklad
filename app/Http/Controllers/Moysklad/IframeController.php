@@ -14,13 +14,13 @@ class IframeController extends Controller
      */
     public function index(UserContextLoaderService $userContextLoaderService)
     {
-        if(isset($userContextLoaderService->employee->errors)){
+        if (isset($userContextLoaderService->employee->errors)) {
             dump($userContextLoaderService->employee->errors);
         };
 
         return view('iframe', array_merge(
             collect($userContextLoaderService->employee)->toArray(),
-            ['isAdmin' =>$userContextLoaderService->isAdmin() ]
+            ['isAdmin' => $userContextLoaderService->isAdmin() ]
         ));
     }
 }

@@ -21,7 +21,8 @@ class SettingController extends Controller
                 'status'       => MoySkladConfig::ACTIVATED,
                 'info_message' => $request->input('infoMessage'),
                 'store'        => $request->input('store')
-            ], [
+            ],
+            [
                 'app_id'     => $request->input('appId'),
                 'account_id' => $request->input('accountId'),
             ]
@@ -35,5 +36,4 @@ class SettingController extends Controller
 
         echo 'Настройки обновлены, перезагрузите приложение';
     }
-
 }

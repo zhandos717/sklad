@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Http;
 
 class JsonApiService extends ClientService
 {
-
     private $accessToken;
 
     public function setToken(string $accessToken): self

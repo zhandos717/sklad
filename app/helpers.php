@@ -2,7 +2,7 @@
 
 use Firebase\JWT\JWT;
 
-if(function_exists('buildJWT')){
+if (function_exists('buildJWT')) {
     /**
      * @throws Exception
      */
@@ -14,6 +14,6 @@ if(function_exists('buildJWT')){
             "exp" => time() + 300,
             "jti" => bin2hex(random_bytes(32))
         ];
-        return JWT::encode($token, config('moysklad.secretKey'),'HS256');
+        return JWT::encode($token, config('moysklad.secretKey'), 'HS256');
     }
 }

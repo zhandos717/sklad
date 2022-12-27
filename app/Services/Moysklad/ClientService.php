@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Http;
 
 abstract class ClientService
 {
-
     protected function send(
         string $method,
         string $path,

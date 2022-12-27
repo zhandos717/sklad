@@ -24,7 +24,7 @@ class WidgetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'contextKey'=>'sometimes|required|string',
+            'contextKey' => 'sometimes|required|string',
         ];
     }
 }

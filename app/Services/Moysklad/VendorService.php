@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class VendorService extends ClientService
 {
-
     /**
      * @throws Exception
      */

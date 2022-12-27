@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class VendorController extends Controller
 {
-
     public function store(
         $version,
         $appId,
@@ -20,7 +19,8 @@ class VendorController extends Controller
             [
                 'access_token' => $request->get('access')[0]['access_token'],
                 'status' => MoySkladConfig::SETTINGS_REQUIRED
-            ], [
+            ],
+            [
                 'app_id' => $appId,
                 'account_id' => $accountId,
             ]
@@ -40,7 +40,8 @@ class VendorController extends Controller
         $moySklad = MoySkladConfig::updateOrCreate(
             [
                 'status' => MoySkladConfig::DELETED
-            ], [
+            ],
+            [
                 'app_id' => $appId,
                 'account_id' => $accountId,
             ]

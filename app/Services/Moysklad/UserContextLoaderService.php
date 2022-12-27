@@ -6,7 +6,6 @@ use Exception;
 
 class UserContextLoaderService
 {
-
     public array|object $employee;
 
     /**
@@ -22,5 +21,4 @@ class UserContextLoaderService
     {
         return $this->employee->permissions->admin->view ?? null;
     }
-
 }
