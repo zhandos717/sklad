@@ -17,12 +17,12 @@ class VendorController extends Controller
     ): VendorResource {
         $moySklad = MoySkladConfig::updateOrCreate(
             [
-                'access_token' => $request->get('access')[0]['access_token'],
-                'status' => MoySkladConfig::SETTINGS_REQUIRED
+                'app_id'     => $appId,
+                'account_id' => $accountId,
             ],
             [
-                'app_id' => $appId,
-                'account_id' => $accountId,
+                'access_token' => $request->get('access')[0]['access_token'],
+                'status'       => MoySkladConfig::SETTINGS_REQUIRED
             ]
         );
 
@@ -36,14 +36,13 @@ class VendorController extends Controller
         $appId,
         $accountId
     ) {
-
         $moySklad = MoySkladConfig::updateOrCreate(
             [
-                'status' => MoySkladConfig::DELETED
+                'app_id'     => $appId,
+                'account_id' => $accountId,
             ],
             [
-                'app_id' => $appId,
-                'account_id' => $accountId,
+                'status' => MoySkladConfig::DELETED
             ]
         );
 

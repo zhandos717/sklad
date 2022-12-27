@@ -14,6 +14,10 @@ class SettingController extends Controller
 
         $moySklad = MoySkladConfig::updateOrCreate(
             [
+                'app_id'     => $request->input('appId'),
+                'account_id' => $request->input('accountId'),
+            ],
+            [
                 'access_token' => isset($request->get('access')[0]['access_token']) ? $request->get(
                     'access'
                 )[0]['access_token'] : null,
@@ -22,10 +26,6 @@ class SettingController extends Controller
                 'info_message' => $request->input('infoMessage'),
                 'store'        => $request->input('store')
             ],
-            [
-                'app_id'     => $request->input('appId'),
-                'account_id' => $request->input('accountId'),
-            ]
         );
 
         $vendorService->updateAppStatus(
