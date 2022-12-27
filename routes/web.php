@@ -46,9 +46,6 @@ Route::middleware(RequestLogger::class)->group(function () {
             Route::get('get-item', 'getItem')->name('demand.widget');
         });
 
-    Route::get('update-settings', [SettingController::class, 'updateSettings'])
-        ->name('update.settings');
-
     Route::post('update-settings', [SettingController::class, 'updateSettings'])
         ->name('update.settings');
 

@@ -70,12 +70,8 @@
                 <div class="row gy-3">
                     <div class="col-md-12">
                         <label for="cc-name" class="form-label">Токен WIPON</label>
-                        <label for="token"></label>
-                        <input type="text" class="form-control" id="token" placeholder="" required="required">
+                        <input type="text" name="token" class="form-control"  required="required">
                         <small class="text-muted">заполните поле</small>
-                        <div class="invalid-feedback">
-                            Name on card is required
-                        </div>
                     </div>
                 </div>
                 <hr class="my-4">
