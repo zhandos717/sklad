@@ -16,7 +16,7 @@ class JsonApiService extends ClientService
         return $this;
     }
 
-    function stores(): PromiseInterface|Response
+    public function stores(): PromiseInterface | Response
     {
         return $this->send(
             'GET',
@@ -25,7 +25,7 @@ class JsonApiService extends ClientService
         );
     }
 
-    function getItem($entity, $objectId): PromiseInterface|Response
+    public function getItem($entity, $objectId): PromiseInterface | Response
     {
         return $this->send(
             'GET',
