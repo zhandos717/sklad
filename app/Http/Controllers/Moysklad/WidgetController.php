@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Moysklad;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Moysklad\ItemResource;
 use App\Models\MoySkladConfig;
+use App\Services\Moysklad\Entity\CustomerOrder;
+use App\Services\Moysklad\Entity\Product;
 use App\Services\Moysklad\JsonApiService;
 use App\Services\Moysklad\UserContextLoaderService;
+use Doctrine\DBAL\Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -20,10 +23,6 @@ class WidgetController extends Controller
 
     public function customerOrderWidget(UserContextLoaderService $userContextLoaderService): Factory|View|Application
     {
-        // $object = jsonApi()->getObject($entity, $objectId
-
-        //dump(collect($userContextLoaderService->employee)->toArray());
-
         return view(
             'moysklad.widgets.demo',
             array_merge(
@@ -31,21 +30,19 @@ class WidgetController extends Controller
                 ['entity' => 'customerorder']
             )
         );
-        //return view('moysklad.widgets.customer-order');
     }
 
-    public function getItem(Request $request, JsonApiService $jsonApiService)
+    public function getItem(Request $request, CustomerOrder $customerOrder, Product $product)
     {
-        $accountId = $request->input('accountId');
-        $entity = $request->input('entity');
-        $objectId = $request->input('objectId');
+        dd($customerOrder->content());
 
-        $moySklad = MoySkladConfig::where('account_id', $accountId)->first();
+       dd($product->setObject($customerOrder->ge);
 
-        $item = $jsonApiService
-            ->setToken($moySklad->access_token)
-            ->getItem($entity, $objectId);
-
-        return new ItemResource($item);
+        return view(
+            'moysklad.widgets.cashbox',
+         [
+             'summ'=>$order->response->object()->sum
+         ]
+        );
     }
 }

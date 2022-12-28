@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class MoySkladConfig extends Model
 {
+
     public const UNKNOWN = 0;
     public const SETTINGS_REQUIRED = 1;
     public const DELETED = 2;

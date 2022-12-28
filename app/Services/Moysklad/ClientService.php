@@ -16,7 +16,7 @@ abstract class ClientService
         string $token,
         string|array $body = null
     ): PromiseInterface|Response {
-        return Http::baseUrl(config('moysklad.vendor_api_endpoint_url'))
+        return Http::baseUrl($this->baseUrl())
             ->contentType('application/json')
             ->withToken($token)
             ->send(

@@ -4,32 +4,8 @@
     <meta charset="utf-8">
 
     <title>DummyApp: <?= $contextName ?? null ?></title>
-    <meta name="description" content="DummyApp widget for Marketplace of MoySklad">
-    <meta name="author" content="onekludov@moysklad.ru">
-
-    <style>
-        html {
-            height: 100%;
-        }
-
-        body {
-            line-height: 1;
-            font-size: 12px;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .hint {
-            cursor: default;
-        }
-
-        .borders {
-            border: 1px solid silver;
-        }
-    </style>
-
+    <meta name="description" content="TIS KZ">
+    <meta name="author" content="">
     <script>
         const hostWindow = window.parent;
 
@@ -102,7 +78,6 @@
 <p>
     <b title="Информацию о текущем пользователе виджет может получить на своем бэкенде через Vendor API, используя contextKey">Текущий
         пользователь <span class="hint">(?)</span>:</b> <?= $uid ?? null ?> (<?= $name ?? null ?>)</p>
-
 <p>
     <b title="Используя objectId, переданный в сообщении Open, можем получить через JSON API открытую пользователем сущность/документ">Открыт
         объект <span class="hint">(?)</span>:</b> <span id="object"></span></p>
