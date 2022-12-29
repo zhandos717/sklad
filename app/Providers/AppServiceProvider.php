@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\MoySkladConfig;
-use App\Services\Moysklad\Entity\CustomerOrder;
 use App\Services\Moysklad\JsonApiService;
 use App\Services\Moysklad\UserContextLoaderService;
 use Illuminate\Support\Facades\URL;

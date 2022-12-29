@@ -1,33 +1,22 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace App\Services\Moysklad\Entity;
-
-use App\Services\Moysklad\JsonApiService;
 
 class Product
 {
-    private string $entity = 'product';
+    public string $name;
 
-    private JsonApiService $client;
-    private $objectId;
+    public string $description;
 
-    public function __construct(JsonApiService $jsonApiService)
+    public string $code;
+    public string $price;
+
+    public function __construct($name, $description, $code, $price)
     {
-        $this->client = $jsonApiService->setEntity($this->entity);
+        $this->name = $name;
+        $this->description = $description;
+        $this->code = $code;
+        $this->price = $price;
     }
-
-    public function content(): object | array
-    {
-        return $this->client
-            ->setObject($this->objectId)->get()->object();
-    }
-
-    public function setObject($objectId)
-    {
-        $this->objectId = $objectId;
-        return $this;
-    }
-
 }
+

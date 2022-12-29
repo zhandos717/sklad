@@ -3,13 +3,9 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Moysklad\ItemResource;
-use App\Models\MoySkladConfig;
-use App\Services\Moysklad\Entity\CustomerOrder;
-use App\Services\Moysklad\Entity\Product;
-use App\Services\Moysklad\JsonApiService;
+use App\Services\Moysklad\Requests\CustomerOrderRequest;
+use App\Services\Moysklad\Requests\ProductRequest;
 use App\Services\Moysklad\UserContextLoaderService;
-use Doctrine\DBAL\Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -32,17 +28,19 @@ class WidgetController extends Controller
         );
     }
 
-    public function getItem(Request $request, CustomerOrder $customerOrder, Product $product)
+    public function getItem(Request $request, CustomerOrderRequest $customerOrder, ProductRequest $product)
     {
-        dd($customerOrder->content());
-
-       dd($product->setObject($customerOrder->ge);
+        $items = collect($customerOrder->content()->rows)->map(function ($item) use ($product) {
+            $path = explode('/', $item->assortment->meta->href);
+            $objectId = end($path);
+            $item->product = $product->setObject($objectId)->content();
+            $item->total = $item->quantity * $item->price;
+            return $item;
+        });
 
         return view(
             'moysklad.widgets.cashbox',
-         [
-             'summ'=>$order->response->object()->sum
-         ]
+            compact('items')
         );
     }
 }

@@ -38,7 +38,7 @@ class JsonApiService extends ClientService
         return $this;
     }
 
-    public function get(?string $options): PromiseInterface | Response
+    public function get(?string $options = null): PromiseInterface | Response
     {
         return $this->request($options);
     }
