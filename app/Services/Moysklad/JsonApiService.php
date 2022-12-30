@@ -2,10 +2,8 @@
 
 namespace App\Services\Moysklad;
 
-use AllowDynamicProperties;
 use GuzzleHttp\Promise\PromiseInterface;
 use Illuminate\Http\Client\Response;
-use Illuminate\Support\Facades\Http;
 
 class JsonApiService extends ClientService
 {
@@ -43,7 +41,7 @@ class JsonApiService extends ClientService
         return $this->request($options);
     }
 
-    private function request(?string $options, ?string $method = 'GET')
+    private function request(?string $options, string $method = 'GET')
     {
         return $this->response = $this->send(
             $method,
@@ -51,8 +49,6 @@ class JsonApiService extends ClientService
             $this->accessToken
         );
     }
-
-
 
 
     public function setObject($objectId): self

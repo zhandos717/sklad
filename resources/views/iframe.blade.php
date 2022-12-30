@@ -64,7 +64,7 @@
         </div>
         <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Форма настроек</h4>
-            <form method="POST" action="{{ route('update.settings')  }}" class="needs-validation" novalidate="">
+            <form method="POST" action="{{ route('settings.update')  }}" class="needs-validation" novalidate="">
                 @csrf
                 <input type="hidden" name="accountId" value="{{$accountId ?? null}}"/>
                 <div class="row gy-3">

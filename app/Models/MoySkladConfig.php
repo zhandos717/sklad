@@ -22,5 +22,6 @@ class MoySkladConfig extends Model
         'store',
         'access_token',
         'status',
+        'prosklad_token'
     ];
 }
