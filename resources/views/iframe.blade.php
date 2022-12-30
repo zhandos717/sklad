@@ -68,19 +68,9 @@
                     Toggle
                 </button>
             </form>
-
             <div class="cardDiv">
 
             </div>
-
-
-                <div class="alert alert-danger">
-                    <ul>
-                   {{dump($errors)}}
-                    </ul>
-                </div>
-
-
         </div>
     </div>
 @endsection
