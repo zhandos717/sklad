@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        '/vendor-endpoint/api/moysklad/*'
+        '/vendor-endpoint/api/moysklad/*',
+        '/settings/*'
     ];
 }

@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateSettingsRequest;
+use App\Http\Requests\SettingsRequest;
 use App\Http\Resources\Moysklad\SettingResource;
 use App\Models\MoySkladConfig;
 use App\Services\Moysklad\VendorService;
 
 class SettingController extends Controller
 {
-    public function update(UpdateSettingsRequest $request, VendorService $vendorService)
+    public function update(SettingsRequest $request, VendorService $vendorService)
     {
 
         $moySklad = MoySkladConfig::updateOrCreate(
             [
                 'app_id'     => $request->input('appId'),
                 'account_id' => $request->input('accountId'),
-                'prosklad_token' => $request->input('tis_token'),
+                'tis_token' => $request->input('tis_token'),
             ],
             [
                 'access_token' => isset($request->get('access')[0]['access_token']) ? $request->get(

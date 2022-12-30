@@ -1,29 +1,4 @@
 @extends('moysklad.layouts')
-
-@section('styles')
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .container {
-            max-width: 960px;
-        }
-    </style>
-
-@endsection
-
 @section('content')
 
     <div class="row g-5">
@@ -58,25 +33,65 @@
                         <h6 class="my-0">Уровень доступа: </h6>
                     </div>
                     <span
-                        class="text-muted">{{ isset($isAdmin) ? 'администратор аккаунта' : 'простой пользователь'}}</span>
+                            class="text-muted">{{ isset($isAdmin) ? 'администратор аккаунта' : 'простой пользователь'}}</span>
                 </li>
             </ul>
         </div>
         <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Форма настроек</h4>
-            <form method="POST" action="{{ route('settings.update')  }}" class="needs-validation" novalidate="">
+
+            <div class="alert alert-warning alert-dismissible  fade show hidden" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div x-data="{ open: false }">
+
+
+                <div x-show="open" @click.outside="open = false">Contents...</div>
+            </div>
+
+            <form action="{{route('settings.update')}}" class="needs-validation" novalidate="" onsubmit="send(event,this)">
                 @csrf
-                <input type="hidden" name="accountId" value="{{$accountId ?? null}}"/>
+                <input type="hidden" name="accountId" value="{{$accountId ?? 'e0be3639-7d4c-11ed-0a80-07f300006563'}}"/>
                 <div class="row gy-3">
                     <div class="col-md-12">
                         <label for="cc-name" class="form-label">Токен WIPON</label>
-                        <input type="text" name="token" class="form-control"  required="required">
+                        <input type="text" name="token" class="form-control" required="required">
                         <small class="text-muted">заполните поле</small>
                     </div>
                 </div>
                 <hr class="my-4">
-                <button class="btn button button--success btn-lg text-white" type="submit">Сохранить</button>
+
+                <button @click="open = ! open" id="btn" type="submit"
+                        class="btn button button--success btn-lg text-white">
+                    Toggle
+                </button>
             </form>
+
+            <div class="cardDiv">
+
+            </div>
+
+
+                <div class="alert alert-danger">
+                    <ul>
+                   {{dump($errors)}}
+                    </ul>
+                </div>
+
+
         </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        function send(e, form) {
+            fetch(form.action, {method: 'post', body: new FormData(form)})
+                .then(function (response){
+                    console.log(response)
+                });
+            e.preventDefault();
+        }
+    </script>
 @endsection
