@@ -12,12 +12,11 @@ class SettingController extends Controller
 {
     public function update(SettingsRequest $request, VendorService $vendorService)
     {
-
         MoySkladConfig::updateOrCreate(
             [
                 'app_id'     => $request->input('appId'),
                 'account_id' => $request->input('account_id'),
-                'tis_token' => $request->input('tis_token'),
+                'tis_token'  => $request->input('tis_token'),
             ],
             [
                 'access_token' => isset($request->get('access')[0]['access_token']) ? $request->get(
@@ -32,12 +31,16 @@ class SettingController extends Controller
 
         $moySklad = MoySkladConfig::whereAccountId($request->input('account_id'))->first();
 
-        $vendorService->updateAppStatus(config('moysklad.app_id'), $moySklad->account_id,
+        $vendorService->updateAppStatus(
+            config('moysklad.app_id'),
+            $moySklad->account_id,
             $moySklad->status
         );
 
-        return new SettingResource(new class{
-            public string $message = 'Настройки успешно обновлены!';
-        });
+        return new SettingResource(
+            new class {
+                public string $message = 'Настройки успешно обновлены!';
+            }
+        );
     }
 }
