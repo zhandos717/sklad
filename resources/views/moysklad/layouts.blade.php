@@ -18,7 +18,6 @@
             crossorigin="anonymous"></script>
     <script src="/assets/js/uikit.js"></script>
     @yield('styles')
-
 </head>
 <body>
 <div class="container">

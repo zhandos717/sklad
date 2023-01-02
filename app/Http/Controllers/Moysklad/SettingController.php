@@ -14,7 +14,7 @@ class SettingController extends Controller
     {
         MoySkladConfig::updateOrCreate(
             [
-                'app_id'     => $request->input('appId'),
+                'app_id'     => config('moysklad.app_uid'),
                 'account_id' => $request->input('account_id'),
                 'tis_token'  => $request->input('tis_token'),
             ],
@@ -22,7 +22,6 @@ class SettingController extends Controller
                 'access_token' => isset($request->get('access')[0]['access_token']) ? $request->get(
                     'access'
                 )[0]['access_token'] : null,
-
                 'status'       => MoySkladConfig::ACTIVATED,
                 'info_message' => $request->input('infoMessage'),
                 'store'        => $request->input('store')
