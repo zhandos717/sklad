@@ -14,7 +14,7 @@ class SettingController extends Controller
     {
         MoySkladConfig::updateOrCreate(
             [
-                'app_id'     => config('moysklad.app_uid'),
+                'app_id'     => config('moysklad.app_id'),
                 'account_id' => $request->input('account_id'),
                 'tis_token'  => $request->input('tis_token'),
             ],
