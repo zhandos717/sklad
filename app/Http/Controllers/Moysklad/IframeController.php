@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\IframeIndexRequest;
 use App\Services\Moysklad\UserContextLoaderService;
-use App\Services\Moysklad\VendorService;
 
 class IframeController extends Controller
 {
@@ -14,8 +12,8 @@ class IframeController extends Controller
      */
     public function index(UserContextLoaderService $userContextLoaderService)
     {
-        if (isset($userContextLoaderService->employee->errors)) {
-            dump($userContextLoaderService->employee->errors);
+        if (app()->environment('local') &&  isset($userContextLoaderService->employee->errors)) {
+            dd($userContextLoaderService->employee->errors);
         };
 
         return view('iframe', array_merge(

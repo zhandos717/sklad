@@ -13,10 +13,10 @@ class SettingController extends Controller
     public function update(SettingsRequest $request, VendorService $vendorService)
     {
 
-        $moySklad = MoySkladConfig::updateOrCreate(
+        MoySkladConfig::updateOrCreate(
             [
                 'app_id'     => $request->input('appId'),
-                'account_id' => $request->input('accountId'),
+                'account_id' => $request->input('account_id'),
                 'tis_token' => $request->input('tis_token'),
             ],
             [
@@ -29,6 +29,8 @@ class SettingController extends Controller
                 'store'        => $request->input('store')
             ],
         );
+
+        $moySklad = MoySkladConfig::whereAccountId($request->input('account_id'))->first();
 
         $vendorService->updateAppStatus(config('moysklad.app_id'), $moySklad->account_id,
             $moySklad->status

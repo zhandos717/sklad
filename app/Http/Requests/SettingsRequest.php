@@ -26,7 +26,7 @@ class SettingsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'accountId' => 'required|string',
+            'account_id' => 'required|string',
             'tis_token' => 'required|string',
         ];
     }
