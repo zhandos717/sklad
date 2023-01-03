@@ -134,66 +134,10 @@
 @endsection
 @section('content')
     <div class="content">
-
         <button type="button" class="btn button button--success btn-lg text-white" data-bs-toggle="modal"
                 data-bs-target="#myModal">
             Выбить чек
         </button>
-
     </div>
-
-    {{--    {{ dump($items) }}--}}
-
-
-    <div class="modal" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Информация о продаже</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <table class="table table-bordered">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Наименование</th>
-                            <th>Цена</th>
-                            <th>Количество</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($items as $item)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->product->name}}</td>
-                                <td>{{$item->price}}</td>
-                                <td>{{$item->quantity}}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <th colspan="2"> Сумма товаров</th>
-                            <th colspan="2">   {{ $items->sum('total') }}</th>
-                        </tr>
-                        </tfoot>
-
-                    </table>
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-@stop
+@endsection
 

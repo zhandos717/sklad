@@ -13,10 +13,6 @@ use Illuminate\Http\Request;
 
 class WidgetController extends Controller
 {
-    public function counterpartyWidget()
-    {
-    }
-
     public function customerOrderWidget(UserContextLoaderService $userContextLoaderService): Factory|View|Application
     {
         return view(

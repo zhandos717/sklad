@@ -12,15 +12,6 @@
         <scope>admin</scope>
     </access>
     <widgets>
-        <entity.counterparty.view>
-            <sourceUrl>{{ route('counterparty.widget')  }}</sourceUrl>
-            <height>
-                <fixed>250px</fixed>
-            </height>
-            <supports>
-                <open-feedback/>
-            </supports>
-        </entity.counterparty.view>
         <document.customerorder.edit>
             <sourceUrl>{{ route('customerorder.widget')  }}</sourceUrl>
             <height>
@@ -30,14 +21,11 @@
                 <open-feedback/>
             </supports>
         </document.customerorder.edit>
-        <document.demand.edit>
-            <sourceUrl>{{ route('demand.widget')  }}</sourceUrl>
-            <height>
-                <fixed>250px</fixed>
-            </height>
-            <supports>
-                <open-feedback/>
-            </supports>
-        </document.demand.edit>
     </widgets>
+    <popups>
+        <popup>
+            <name>formsPopup</name>
+            <sourceUrl>{{ route('popup')  }}</sourceUrl>
+        </popup>
+    </popups>
 </ServerApplication>

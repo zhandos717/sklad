@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(JsonApiService::class, function (){
-            $accessToken = MoySkladConfig::where('account_id', request()->get('accountId'))->first()->access_token;
+            $accessToken = MoySkladConfig::whereAccountId( request()->get('accountId'))->first()->access_token;
             return new JsonApiService($accessToken, request()->get('objectId'));
         });
     }

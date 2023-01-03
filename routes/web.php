@@ -4,11 +4,14 @@ use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\SettingController;
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\WidgetController;
+use App\Http\Controllers\Moysklad\PopupController;
 use Illuminate\Support\Facades\Route;
 
 
 
 Route::post('settings/update', [SettingController::class, 'update'])->name('settings.update');
+
+Route::post('popup', [PopupController::class, 'index'])->name('popup');
 
 Route::controller(VendorController::class)
     ->prefix('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}')
