@@ -27,7 +27,7 @@
                     hostWindow.postMessage(sendingMessage, '*');
                 });
                 objectId = receivedMessage.objectId;
-                oReq.open("GET", '{{ url()}}' + '/widgets/get-object?token=' + token + '&uid=' + uid + '&accountId=' + accountId + '&entity=customerorder&objectId=' + receivedMessage.objectId);
+                oReq.open("GET", '{{ url('/')}}' + '/widgets/get-object?token=' + token + '&uid=' + uid + '&accountId=' + accountId + '&entity=customerorder&objectId=' + receivedMessage.objectId);
                 oReq.send();
             } else if (receivedMessage.name === 'ShowPopupResponse' && receivedMessage.popupName === 'formsPopup' && receivedMessage.popupResolution === 'normal' && (typeof receivedMessage.popupResponse !== 'undefined')) {
                 clickButton(receivedMessage.correlationId, receivedMessage.popupResponse);
