@@ -92,6 +92,8 @@
                 const button = $(this);
                 const buttonId = Number(button.attr('value'));
 
+                console.log('2121')
+
                 if (button.hasClass('require-popup')) {
                     const sendingMessage = {
                         "name": "ShowPopupRequest",
