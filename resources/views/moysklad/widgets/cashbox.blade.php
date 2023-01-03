@@ -1,5 +1,5 @@
 @extends('moysklad.layouts')
-@section('title', 'Page Title')
+@section('title', 'Popup')
 @section('js')
     <script>
         const hostWindow = window.parent;
