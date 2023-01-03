@@ -2,31 +2,26 @@
 @section('title', 'Popup')
 @section('js')
     <script>
-        $('.button--success').click(function () {
-            const form = $(this).parents('form');
-            const button = $(this);
-            const buttonId = Number(button.attr('value'));
+        function logReceivedMessage(msg) {
+            logMessage("→ Received", msg)
+        }
 
-            console.log('2121')
+        function logSendingMessage(msg) {
+            logMessage("← Sending", msg)
+        }
 
-            if (button.hasClass('require-popup')) {
-                const sendingMessage = {
-                    "name": "ShowPopupRequest",
-                    "messageId": buttonId,
-                    "popupName": "formsPopup",
-                    "popupParameters": {
-                        "token": token,
-                        "uid": uid,
-                        "accountId": accountId,
-                        "entity": entity,
-                        "objectId": objectId,
-                        "buttonId": buttonId,
-                    }
-                };
-                logSendingMessage(sendingMessage);
-                hostWindow.postMessage(sendingMessage, '*');
-                return false;
-            }
+        function logMessage(prefix, msg) {
+            const messageAsString = JSON.stringify(msg);
+            console.log(prefix + " message: " + messageAsString);
+        }
+
+        function body() {
+            return window.document.body;
+        }
+
+        function clickButton(buttonId, popupFormParameters) {
+            const form = $('#click-form');
+            const button = form.children('button[value=' + buttonId + ']');
 
             $('#object').hide();
             $('#doing-action-name').text(button.text());
@@ -35,7 +30,7 @@
             $.ajax({
                 type: 'POST',
                 url: form.attr('action'),
-                data: {'buttonId': button.attr('value')},
+                data: {'buttonId': buttonId, 'popupFormParameters': popupFormParameters},
                 success: function (data, textStatus, jqXHR) {
                     $('#doing-popup').hide();
                     $('#object').show();
@@ -46,9 +41,70 @@
                     $('#result-error').show();
                 }
             });
+        }
 
-            return false;
-        });
+        function prepareButtons() {
+
+            if ($('#result-error').css('display') != 'none') {
+                $('#result-error').hide();
+                $('#object').show();
+            }
+
+            if ($('#object-new').css('display') != 'none') {
+                $('#object-new').hide();
+                $('#object').show();
+            }
+
+            $('.button--success').click(function () {
+                const form = $(this).parents('form');
+                const button = $(this);
+                const buttonId = Number(button.attr('value'));
+
+                console.log('2121')
+
+                if (button.hasClass('require-popup')) {
+                    const sendingMessage = {
+                        "name": "ShowPopupRequest",
+                        "messageId": buttonId,
+                        "popupName": "formsPopup",
+                        "popupParameters": {
+                            "token": token,
+                            "uid": uid,
+                            "accountId": accountId,
+                            "entity": entity,
+                            "objectId": objectId,
+                            "buttonId": buttonId,
+                        }
+                    };
+                    logSendingMessage(sendingMessage);
+                    hostWindow.postMessage(sendingMessage, '*');
+                    return false;
+                }
+
+                $('#object').hide();
+                $('#doing-action-name').text(button.text());
+                $('#doing-popup').show();
+
+                $.ajax({
+                    type: 'POST',
+                    url: form.attr('action'),
+                    data: {'buttonId': button.attr('value')},
+                    success: function (data, textStatus, jqXHR) {
+                        $('#doing-popup').hide();
+                        $('#object').show();
+                        $('#object-new').html(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        $('#doing-popup').hide();
+                        $('#result-error').show();
+                    }
+                });
+
+                return false;
+            });
+        }
+
+        prepareButtons();
     </script>
 @endsection
 @section('content')
