@@ -36,4 +36,4 @@ Route::prefix('widgets')->controller(WidgetController::class)
         Route::get('get-item', 'getItem')->name('demand.widget');
     });
 
-Route::view('/', '');
+Route::view('/', 'welcome');
