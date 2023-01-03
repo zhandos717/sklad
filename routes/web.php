@@ -28,6 +28,8 @@ Route::controller(VendorController::class)
 
 Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
 
+Route::view('descriptor','descriptor-xml');
+
 Route::prefix('widgets')->controller(WidgetController::class)
     ->group(function () {
         Route::get('customerorder-widget', 'customerOrderWidget')->name(
