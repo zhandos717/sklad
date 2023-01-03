@@ -116,5 +116,20 @@
             </button>
         </form>
     </div>
+
+
+
+    <form
+        action="../knopki/click.php?accountId=e0be3639-7d4c-11ed-0a80-07f300006563&uid=admin%40zhan96&entity=customerorder&token=7fc1d63d7a007e59da105919afe4af8478907ab4&objectId=1f179a85-868d-11ed-0a80-0916007fca50"
+        id="click-form" method="POST">
+        <table class="raspred-form">
+            <tr>
+                <td><p></p></td>
+                <td>
+                    <button class="button require-popup" name="buttonId" value="1">Печать чека</button>
+                </td>
+            </tr>
+        </table>
+    </form>
 @endsection
 
