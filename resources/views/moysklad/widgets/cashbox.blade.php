@@ -10,7 +10,7 @@
         let objectId = "";
 
         window.addEventListener("message", function (event) {
-            var receivedMessage = event.data;
+            const receivedMessage = event.data;
 
             logReceivedMessage(receivedMessage);
 
@@ -19,7 +19,7 @@
                 oReq.addEventListener("load", function () {
                     window.document.getElementById("object").innerHTML = this.responseText;
                     prepareButtons();
-                    var sendingMessage = {
+                    const sendingMessage = {
                         name: "OpenFeedback",
                         correlationId: receivedMessage.messageId
                     };
@@ -43,7 +43,7 @@
         }
 
         function logMessage(prefix, msg) {
-            var messageAsString = JSON.stringify(msg);
+            const messageAsString = JSON.stringify(msg);
             console.log(prefix + " message: " + messageAsString);
         }
 
@@ -76,14 +76,17 @@
         }
 
         function prepareButtons() {
+
             if ($('#result-error').css('display') != 'none') {
                 $('#result-error').hide();
                 $('#object').show();
             }
+
             if ($('#object-new').css('display') != 'none') {
                 $('#object-new').hide();
                 $('#object').show();
             }
+
             $('.button--success').click(function () {
                 const form = $(this).parents('form');
                 const button = $(this);

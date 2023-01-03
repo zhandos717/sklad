@@ -31,35 +31,36 @@
 <body>
 <div class="main-container">
     <div class="content-container">
-
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>Наименование</th>
-                <th>Цена</th>
-                <th>Количество</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($items as $item)
+        @if(isset($items))
+            <table class="table table-bordered">
+                <thead>
                 <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$item->product->name}}</td>
-                    <td>{{$item->price}}</td>
-                    <td>{{$item->quantity}}</td>
+                    <th>#</th>
+                    <th>Наименование</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
                 </tr>
-            @endforeach
-            </tbody>
-            <tfoot>
-            <tr>
-                <th colspan="2"> Сумма товаров</th>
-                <th colspan="2">   {{ $items->sum('total') }}</th>
-            </tr>
-            </tfoot>
+                </thead>
+                <tbody>
+                @foreach($items as $item)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$item->product->name}}</td>
+                        <td>{{$item->price}}</td>
+                        <td>{{$item->quantity}}</td>
+                    </tr>
+                    @endforeach
 
-        </table>
-        
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="2"> Сумма товаров</th>
+                    <th colspan="2">   {{ $items->sum('total') }}</th>
+                </tr>
+                </tfoot>
+
+            </table>
+        @endif
     </div>
     <div class="buttons-container">
         <button class="button button--success">Сохранить</button>
