@@ -84,13 +84,13 @@
                 $('#object-new').hide();
                 $('#object').show();
             }
-            $('#click-form button[name="buttonId"]').click(function () {
-                var form = $(this).parents('form');
-                var button = $(this);
-                var buttonId = Number(button.attr('value'));
+            $('.button--success').click(function () {
+                const form = $(this).parents('form');
+                const button = $(this);
+                const buttonId = Number(button.attr('value'));
 
                 if (button.hasClass('require-popup')) {
-                    var sendingMessage = {
+                    const sendingMessage = {
                         "name": "ShowPopupRequest",
                         "messageId": buttonId,
                         "popupName": "formsPopup",
@@ -102,7 +102,7 @@
                             "objectId": objectId,
                             "buttonId": buttonId,
                         }
-                    }
+                    };
                     logSendingMessage(sendingMessage);
                     hostWindow.postMessage(sendingMessage, '*');
                     return false;
@@ -134,8 +134,7 @@
 @endsection
 @section('content')
     <div class="content">
-        <button type="button" class="btn button button--success btn-lg text-white" data-bs-toggle="modal"
-                data-bs-target="#myModal">
+        <button type="button" value="1" class="require-popup btn button button--success btn-lg text-white">
             Выбить чек
         </button>
     </div>
