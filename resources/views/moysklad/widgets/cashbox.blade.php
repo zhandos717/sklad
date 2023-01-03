@@ -27,7 +27,7 @@
                     hostWindow.postMessage(sendingMessage, '*');
                 });
                 objectId = receivedMessage.objectId;
-                oReq.open("GET", "https://kassakz1.nirguna.ru/1/widgets/get-object.php?token=7c4d83ee4b3ce4fa922a1ac9292f59799a7f1a2a&uid=admin@zhan96&accountId=e0be3639-7d4c-11ed-0a80-07f300006563&entity=customerorder&objectId=" + receivedMessage.objectId);
+                oReq.open("GET", '{{ url()}}' + '/widgets/get-object?token=' + token + '&uid=' + uid + '&accountId=' + accountId + '&entity=customerorder&objectId=' + receivedMessage.objectId);
                 oReq.send();
             } else if (receivedMessage.name === 'ShowPopupResponse' && receivedMessage.popupName === 'formsPopup' && receivedMessage.popupResolution === 'normal' && (typeof receivedMessage.popupResponse !== 'undefined')) {
                 clickButton(receivedMessage.correlationId, receivedMessage.popupResponse);
@@ -139,9 +139,11 @@
 @endsection
 @section('content')
     <div class="content">
-        <button type="button" value="1" class="require-popup btn button button--success btn-lg text-white">
-            Выбить чек
-        </button>
+        <form action="/">
+            <button type="button" value="1" class="require-popup btn button button--success btn-lg text-white">
+                Выбить чек
+            </button>
+        </form>
     </div>
 @endsection
 
