@@ -84,13 +84,11 @@
                 url: form.attr('action'),
                 data: form.serialize(),
                 success: function (res, textStatus, jqXHR) {
-
                     console.log(res.data.view);
-
                     CallPrint(res.data.view);
                     $('#doing-popup').hide();
                     $('#object').show();
-                    $('#object-new').html(res.data.view);
+                    //$('#object-new').html(res.data.view);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     $('#doing-popup').hide();
@@ -135,9 +133,5 @@
                 администратору аккаунта МойСклад.
             </div>
         </form>
-
-        <div id="object-new">
-
-        </div>
     </div>
 @endsection
