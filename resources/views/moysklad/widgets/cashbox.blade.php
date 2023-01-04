@@ -85,10 +85,10 @@
                 data: form.serialize(),
                 success: function (res, textStatus, jqXHR) {
                     console.log(res.data.view);
-                    CallPrint(res.data.view);
                     $('#doing-popup').hide();
                     $('#object').show();
-                    //$('#object-new').html(res.data.view);
+                    $('#object-new').html(res.data.view);
+                    print();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     $('#doing-popup').hide();
@@ -98,24 +98,27 @@
 
             return false;
         });
-
-
-        function CallPrint(html) {
-            const WinPrint = window.open('', '', 'left=50,top=50,width=800,height=640,toolbar=0,scrollbars=1,status=0');
-            WinPrint.document.write('');
-            WinPrint.document.write(html);
-            WinPrint.document.write('');
-            WinPrint.document.close();
-            WinPrint.focus();
-            WinPrint.print();
-            WinPrint.close();
-        }
-
-
     </script>
+@endsection
+@section('styles')
+ <style>
+     .hide{
+         display: none;
+     }
+     @media print {
+         #click-form{
+             display: none;
+         }
+         #object-new{
+             display: block;
+         }
+     }
+  </style>
 @endsection
 @section('content')
     <div class="content">
+        <div id="object"></div>
+        <div class="hide" id="object-new"></div>
         <form action="{{route('sale')}}" id="click-form" method="POST">
             @csrf
             <input hidden name="accountId" value="{{$accountId}}">
