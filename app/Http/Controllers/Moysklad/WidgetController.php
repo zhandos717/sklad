@@ -37,9 +37,9 @@ class WidgetController extends Controller
         return view(
             'moysklad.widgets.cashbox',
             [
-                'items' => $items,
+                'items'     => $items,
                 'accountId' => $request->accountId,
-                'objectId' => $request->objectId,
+                'objectId'  => $request->objectId,
             ]
         );
     }

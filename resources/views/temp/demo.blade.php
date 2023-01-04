@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
 
-    <title>DummyApp: {{$contextName}}</title>
+    <title>DummyApp: <?= $contextName ?? null ?></title>
     <meta name="description" content="TIS KZ">
     <meta name="author" content="">
     <script>
         const hostWindow = window.parent;
+
 
         window.addEventListener("message", function (event) {
             const receivedMessage = event.data;
