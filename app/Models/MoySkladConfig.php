@@ -24,4 +24,9 @@ class MoySkladConfig extends Model
         'status',
         'tis_token'
     ];
+
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }

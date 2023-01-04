@@ -32,6 +32,8 @@
                 url: form.attr('action'),
                 data: {'buttonId': buttonId, 'popupFormParameters': popupFormParameters},
                 success: function (data, textStatus, jqXHR) {
+
+                    console.log(data);
                     $('#doing-popup').hide();
                     $('#object').show();
                     $('#object-new').html(data);
@@ -56,28 +58,17 @@
             }
         }
 
-        prepareButtons();
-
-        $('.button--success').click(function () {
+        $('.button').click(function () {
             const form = $(this).parents('form');
             const button = $(this);
             const buttonId = Number(button.attr('value'));
-
-            console.log('2121')
 
             if (button.hasClass('require-popup')) {
                 const sendingMessage = {
                     "name": "ShowPopupRequest",
                     "messageId": buttonId,
                     "popupName": "formsPopup",
-                    "popupParameters": {
-                        "token": token,
-                        "uid": uid,
-                        "accountId": accountId,
-                        "entity": entity,
-                        "objectId": objectId,
-                        "buttonId": buttonId,
-                    }
+                    "popupParameters": form.serialize()
                 };
                 logSendingMessage(sendingMessage);
                 hostWindow.postMessage(sendingMessage, '*');
@@ -91,11 +82,15 @@
             $.ajax({
                 type: 'POST',
                 url: form.attr('action'),
-                data: {'buttonId': button.attr('value')},
-                success: function (data, textStatus, jqXHR) {
+                data: form.serialize(),
+                success: function (res, textStatus, jqXHR) {
+
+                    console.log(res.data.view);
+
+                    CallPrint(res.data.view);
                     $('#doing-popup').hide();
                     $('#object').show();
-                    $('#object-new').html(data);
+                    $('#object-new').html(res.data.view);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     $('#doing-popup').hide();
@@ -106,30 +101,43 @@
             return false;
         });
 
+
+        function CallPrint(html) {
+            const WinPrint = window.open('', '', 'left=50,top=50,width=800,height=640,toolbar=0,scrollbars=1,status=0');
+            WinPrint.document.write('');
+            WinPrint.document.write(html);
+            WinPrint.document.write('');
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+
     </script>
 @endsection
 @section('content')
     <div class="content">
-        <form action="/">
-            <button type="button" value="1" class="require-popup btn button button--success btn-lg text-white">
-                Выбить чек
+        <form action="{{route('sale')}}" id="click-form" method="POST">
+            @csrf
+            <input hidden name="accountId" value="{{$accountId}}">
+            <input hidden name="objectId" value="{{$objectId}}">
+            <button class="button button--success" type="submit" value="12">
+                Печать чека
             </button>
+            <div class="hidden" id="doing-popup">
+                <img src="https://i.gifer.com/origin/4d/4dc11d17f5292fd463a60aa2bbb41f6a.gif"
+                     style="vertical-align:middle;"/>
+                Выполняется "
+                <span id="doing-action-name"></span>".
+            </div>
+            <div class="hidden" id="result-error">⚠ Ошибка при отправке запроса.<br/> Попробуйте позже или обратитесь к
+                администратору аккаунта МойСклад.
+            </div>
         </form>
+
+        <div id="object-new">
+
+        </div>
     </div>
-
-
-
-    <form
-        action="../knopki/click.php?accountId=e0be3639-7d4c-11ed-0a80-07f300006563&uid=admin%40zhan96&entity=customerorder&token=7fc1d63d7a007e59da105919afe4af8478907ab4&objectId=1f179a85-868d-11ed-0a80-0916007fca50"
-        id="click-form" method="POST">
-        <table class="raspred-form">
-            <tr>
-                <td><p></p></td>
-                <td>
-                    <button class="button require-popup" name="buttonId" value="1">Печать чека</button>
-                </td>
-            </tr>
-        </table>
-    </form>
 @endsection
-

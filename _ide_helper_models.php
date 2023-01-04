@@ -12,6 +12,41 @@
 
 namespace App\Models{
 /**
+ * App\Models\Item
+ *
+ * @property int $id
+ * @property string|null $name
+ * @property int|null $price
+ * @property int|null $quantity
+ * @property int|null $discount
+ * @property int|null $kgd_code
+ * @property int $sale_id
+ * @property array|null $compare_field
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|Item[] $items
+ * @property-read int|null $items_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Payment[] $payments
+ * @property-read int|null $payments_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Item newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Item newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Item query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereCompareField($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereDiscount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereKgdCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereQuantity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereSaleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Item whereUpdatedAt($value)
+ */
+	class IdeHelperItem {}
+}
+
+namespace App\Models{
+/**
  * App\Models\MoySkladConfig
  *
  * @property int $id
@@ -23,6 +58,9 @@ namespace App\Models{
  * @property int|null $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $tis_token
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Sale[] $sales
+ * @property-read int|null $sales_count
  * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig query()
@@ -34,9 +72,60 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereInfoMessage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereStore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereTisToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MoySkladConfig whereUpdatedAt($value)
  */
 	class IdeHelperMoySkladConfig {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Payment
+ *
+ * @property int $id
+ * @property int|null $method
+ * @property int|null $sum
+ * @property int $sale_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereMethod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereSaleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereSum($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereUpdatedAt($value)
+ */
+	class IdeHelperPayment {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Sale
+ *
+ * @property int $id
+ * @property int $price
+ * @property int $type
+ * @property int $moy_sklad_config_id
+ * @property mixed|null $fiscal_receipt
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Item|null $items
+ * @property-read \App\Models\Item|null $moySkladConfig
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereFiscalReceipt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereMoySkladConfigId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereUpdatedAt($value)
+ */
+	class IdeHelperSale {}
 }
 
 namespace App\Models{
@@ -45,18 +134,12 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $name
- * @property int $phone_number
- * @property string|null $phone_number_verified_at
+ * @property string $email
+ * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
- * @property int $role
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property bool $has_password
- * @property string|null $deleted_at
- * @property int|null $sales_manager_id
- * @property int|null $support_manager_id
- * @property string|null $activation_hash Хэш для активации аккаунта (передается через SMS)
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
@@ -65,19 +148,13 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
- * @method static \Illuminate\Database\Eloquent\Builder|User whereActivationHash($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereHasPassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePhoneNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePhoneNumberVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereRole($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereSalesManagerId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereSupportManagerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  */
 	class IdeHelperUser {}

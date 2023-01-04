@@ -4,6 +4,7 @@ use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\SettingController;
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\WidgetController;
+use App\Http\Controllers\Moysklad\SaleController;
 use App\Http\Controllers\Moysklad\PopupController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::controller(VendorController::class)
     });
 
 Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
+
+Route::post('/sale', [SaleController::class, 'store'])->name('sale');
 
 Route::view('descriptor','descriptor-xml');
 
