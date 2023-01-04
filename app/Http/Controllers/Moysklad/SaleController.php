@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class SaleController
 {
-    public function store(Request $request)
+    public function store(Request $request): SaleStoreResource
     {
 //        dd(
 //            $request->all()
