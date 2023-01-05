@@ -75,7 +75,8 @@
                 return false;
             }
 
-            $('#object').hide();
+            button.hide();
+            $('#button').hide();
             $('#doing-action-name').text(button.text());
             $('#doing-popup').show();
 
@@ -101,25 +102,32 @@
     </script>
 @endsection
 @section('styles')
- <style>
-     .hide{
-         display: none;
-     }
-     @media print {
-         #click-form{
-             display: none;
-         }
-         #object-new{
-             display: block;
-         }
-     }
-  </style>
+    <style>
+        .hide {
+            display: none;
+        }
+
+        @media print {
+            #click-form {
+                display: none;
+            }
+
+            #object-new {
+                display: block;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <div class="content">
         <div id="object"></div>
         <div class="hide" id="object-new"></div>
+        <div class="hidden alert alert-danger d-print-none " id="result-error">
+            ⚠ Ошибка при отправке запроса.
+            <br/> Попробуйте позже или обратитесь к администратору аккаунта МойСклад.
+        </div>
         <form action="{{route('sale')}}" id="click-form" method="POST">
+            <input name="uuid" value="{{ \Ramsey\Uuid\Uuid::uuid4()->toString()  }}" hidden="">
             @csrf
             <input hidden name="accountId" value="{{$accountId}}">
             <input hidden name="objectId" value="{{$objectId}}">
@@ -127,13 +135,12 @@
                 Печать чека
             </button>
             <div class="hidden" id="doing-popup">
-                <img src="https://i.gifer.com/origin/4d/4dc11d17f5292fd463a60aa2bbb41f6a.gif"
-                     style="vertical-align:middle;"/>
-                Выполняется "
-                <span id="doing-action-name"></span>".
-            </div>
-            <div class="hidden" id="result-error">⚠ Ошибка при отправке запроса.<br/> Попробуйте позже или обратитесь к
-                администратору аккаунта МойСклад.
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                    </div>
+                </div>
+                <span id="doing-action-name">
+                </span>
             </div>
         </form>
     </div>

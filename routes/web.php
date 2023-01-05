@@ -9,6 +9,8 @@ use App\Http\Controllers\Moysklad\PopupController;
 use Illuminate\Support\Facades\Route;
 
 
+Route::post('/sale', [SaleController::class, 'store'])->name('sale');
+
 
 Route::post('settings/update', [SettingController::class, 'update'])->name('settings.update');
 
@@ -29,9 +31,8 @@ Route::controller(VendorController::class)
 
 Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
 
-Route::post('/sale', [SaleController::class, 'store'])->name('sale');
 
-Route::view('descriptor','descriptor-xml');
+Route::view('descriptor', 'descriptor-xml');
 
 Route::prefix('widgets')->controller(WidgetController::class)
     ->group(function () {
