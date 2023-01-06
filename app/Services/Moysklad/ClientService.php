@@ -10,27 +10,49 @@ use Illuminate\Support\Facades\Http;
 
 abstract class ClientService
 {
+    /**
+     * @param string $method
+     * @param string $path
+     * @param string $token
+     * @param string|array|null $body
+     * @return PromiseInterface|Response
+     * @throws Exception
+     */
     protected function send(
         string $method,
         string $path,
         string $token,
         string|array $body = null
-    ): PromiseInterface|Response {
-        return Http::baseUrl($this->baseUrl())
-            ->contentType('application/json')
-            ->withToken($token)
-            ->send(
-                $method,
-                $path,
-                [
-                    'body' => json_encode($body)
-                ]
-            );
+    ) {
+        try {
+            $response =  Http::baseUrl($this->baseUrl())
+                ->contentType('application/json')
+                ->withToken($token)
+                ->send(
+                    $method,
+                    $path,
+                    [
+                        'body' => json_encode($body)
+                    ]
+                );
+
+            if($response->failed()){
+                throw new Exception('Ошибка авторизации');
+            }
+
+            return $response;
+
+        } catch (Exception $exception) {
+            throw new Exception($exception->getMessage());
+        }
+
+
     }
 
     abstract protected function baseUrl();
 
     /**
+     * @return string
      * @throws Exception
      */
     protected function buildJWT(): string

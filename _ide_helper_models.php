@@ -88,6 +88,7 @@ namespace App\Models{
  * @property int $sale_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Sale|null $sale
  * @method static \Illuminate\Database\Eloquent\Builder|Payment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Payment newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Payment query()

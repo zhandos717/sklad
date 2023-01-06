@@ -12,7 +12,7 @@
 <iframe
     width="500px"
     height="800px"
-    src="http://localhost/widgets/customerorder-widget?contextKey={{ request()->get('contextKey') }}">
+    src="http://localhost/widgets/get-item?accountId=e0be3639-7d4c-11ed-0a80-07f300006563&entity=customerorder&objectId=1f179a85-868d-11ed-0a80-0916007fca50">
 </iframe>
 </body>
 </html>

@@ -12,13 +12,12 @@ class IframeController extends Controller
      */
     public function index(UserContextLoaderService $userContextLoaderService)
     {
-        if (app()->environment('local') &&  isset($userContextLoaderService->employee->errors)) {
-            dd($userContextLoaderService->employee->errors);
-        };
-
-        return view('iframe', array_merge(
-            collect($userContextLoaderService->employee)->toArray(),
-            ['isAdmin' => $userContextLoaderService->isAdmin() ]
-        ));
+        return view(
+            'iframe',
+            array_merge(
+                collect($userContextLoaderService->employee)->toArray(),
+                ['isAdmin' => $userContextLoaderService->isAdmin()]
+            )
+        );
     }
 }
