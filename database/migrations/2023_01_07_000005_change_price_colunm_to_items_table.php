@@ -12,7 +12,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::table('items', function (Blueprint $table) {
             $table->string('price')->change();
         });
     }

@@ -84,7 +84,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property int|null $method
- * @property int|null $sum
+ * @property string|null $sum
  * @property int $sale_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -107,7 +107,7 @@ namespace App\Models{
  * App\Models\Sale
  *
  * @property int $id
- * @property int $price
+ * @property string $price
  * @property int $type
  * @property int $moy_sklad_config_id
  * @property mixed|null $fiscal_receipt
