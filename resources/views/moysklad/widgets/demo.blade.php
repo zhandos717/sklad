@@ -15,13 +15,23 @@
             logReceivedMessage(receivedMessage);
 
             if (receivedMessage.name === 'Open') {
-                var oReq = new XMLHttpRequest();
+                const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
                     window.document.getElementById("object").innerHTML = this.responseText;
                 });
 
                 oReq.open("GET", '/widgets/get-item?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
                 oReq.send();
+
+                window.setTimeout(function () {
+                    const sendingMessage = {
+                        name: "OpenFeedback",
+                        correlationId: receivedMessage.messageId
+                    };
+                    logSendingMessage(sendingMessage);
+                    hostWindow.postMessage(sendingMessage, '*');
+
+                }, getOpenFeedbackDelay());
             }
         });
 
@@ -34,17 +44,14 @@
         }
 
         function logMessage(prefix, msg) {
-            var messageAsString = JSON.stringify(msg);
+            const messageAsString = JSON.stringify(msg);
             console.log(prefix + " message: " + messageAsString);
-            addMessage(prefix.toUpperCase() + " " + messageAsString);
         }
 
-        function addMessage(item) {
-            var messages = window.document.getElementById("messages");
-            messages.innerHTML = item + "<br/>" + messages.innerHTML;
-            messages.title += item + "\n";
-        }
 
+        function getOpenFeedbackDelay() {
+            return window.document.getElementById("openFeedbackDelay").value
+        }
 
         function toggleBorders(value) {
             body().className = value ? "borders" : "";
@@ -61,11 +68,14 @@
     </script>
 </head>
 <body>
-<b title="Используя objectId, переданный в сообщении Open, можем получить через JSON API открытую пользователем сущность/документ">Открыт
-    объект <span class="hint">(?)</span>:</b> <span id="object"></span></p>
+    <b title="Используя objectId, переданный в сообщении Open, можем получить через JSON API открытую пользователем сущность/документ">Открыт
+        объект <span class="hint">(?)</span>:</b> <span id="object"></span></p>
 
 <p><b title="Синтетическая задержка, позволяющая посмотреть как работает функционал OpenFeedback">Задержка OpenFeedback,
         мс <span class="hint">(?)</span>:</b> <input type="text" id="openFeedbackDelay" value="300"></p>
+
+<b title="Лог входящих от хост-окна и исходящих от виджета сообщений (коммуникация через Window.postMessage). Здесь лог отображается в обратном порядке (последние сообщения сверху), при наведении на текст сообщений можно посмотреть все сообщения в прямом порядке (последние сообщения в конце)">Сообщения
+    <span class="hint">(?)</span>:</b>
 <div id="messages"></div>
 </body>
 </html>
