@@ -1,6 +1,6 @@
 @if(isset($sale->fiscal_receipt))
-    <div class="alert alert-success hidden">
-        Чек за данную операцию уже выбит!
+    <div class="alert alert-success">
+        Чек за данную заказ уже выбит!
     </div>
 @endif
 
