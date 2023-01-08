@@ -1,10 +1,29 @@
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8">
-    <title>DummyApp:</title>
-    <meta name="description" content="TIS KZ">
-    <meta name="author" content="">
+@extends('moysklad.layouts')
+@section('title', 'Page Title')
+
+@section('styles')
+    <style>
+        #fiscal-receipt {
+            display: none;
+        }
+
+        @media print {
+            #fiscal-receipt {
+                display: block;
+            }
+
+            #click-form {
+                display: none;
+            }
+
+            #object {
+                display: none;
+            }
+        }
+    </style>
+@endsection
+
+@section('js')
     <script>
         const hostWindow = window.parent;
 
@@ -70,54 +89,35 @@
         }
 
     </script>
-    <style>
-        #fiscal-receipt {
-            display: none;
-        }
+@endsection
 
-        @media print {
-            #fiscal-receipt {
-                display: block;
-            }
-
-            #click-form {
-                display: none;
-            }
-
-            #object {
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body>
-<div id="object">
-
-</div>
-<div id="fiscal-receipt">
-
-</div>
-<form method="POST" onsubmit="send(event,this)" action="{{route('sale')}}" id="click-form" method="POST">
-    <label>
-        <input name="uuid" value="{{ \Ramsey\Uuid\Uuid::uuid4()->toString()  }}" hidden="">
-    </label>
-    @csrf
-    <label>
-        <input hidden name="accountId" value="{{$accountId}}">
-    </label>
-    <label>
-        <input hidden name="objectId" id="objectId">
-    </label>
-    <button class="button button--success" type="submit" value="12">
-        Печать чека
-    </button>
-    <div class="hidden" id="doing-popup">
-        <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status">
-            </div>
-        </div>
-        <span id="doing-action-name"></span>
+@section('content')
+    <div id="object">
     </div>
-</form>
-</body>
-</html>
+    <div id="fiscal-receipt">
+    </div>
+    <form method="POST" onsubmit="send(event,this)" action="{{route('sale')}}" id="click-form" method="POST">
+        <label>
+            <input name="uuid" value="{{ \Ramsey\Uuid\Uuid::uuid4()->toString()  }}" hidden="">
+        </label>
+        @csrf
+        <label>
+            <input hidden name="accountId" value="{{$accountId}}">
+        </label>
+        <label>
+            <input hidden name="objectId" id="objectId">
+        </label>
+        <button class="button button--success" type="submit" value="12">
+            Печать чека
+        </button>
+        <div class="hidden" id="doing-popup">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                </div>
+            </div>
+            <span id="doing-action-name"></span>
+        </div>
+    </form>
+@stop
+
+
