@@ -111,7 +111,7 @@
         <label>
             <input hidden name="objectId" id="objectId">
         </label>
-        <button class="button button--success" type="submit" value="12">
+        <button class="button button--success" type="submit">
             Печать чека
         </button>
         <div class="hidden" id="doing-popup">
@@ -120,7 +120,6 @@
                 </div>
             </div>
             <span id="message">
-
             </span>
         </div>
     </form>
