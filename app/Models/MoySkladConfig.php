@@ -15,6 +15,12 @@ class MoySkladConfig extends Model
     public const DELETED = 2;
     public const ACTIVATED = 100;
 
+
+    public const STATUS_TYPES = [
+        1 => 'SettingsRequired',
+        100 => 'Activated',
+    ];
+
     protected $fillable = [
         'app_id',
         'account_id',

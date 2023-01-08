@@ -35,6 +35,9 @@ class VendorController extends Controller
         ]);
     }
 
+    /**
+     * @throws \Exception
+     */
     public function update(UpdateSettingsRequest $request, VendorService $vendorService)
     {
         $moySklad = MoySkladConfig::whereAccountId($request->input('account_id'))->first();
@@ -54,7 +57,7 @@ class VendorController extends Controller
         $vendorService->updateAppStatus(
             config('moysklad.app_id'),
             $request->input('account_id'),
-            MoySkladConfig::ACTIVATED
+            MoySkladConfig::STATUS_TYPES[MoySkladConfig::ACTIVATED]
         );
 
         return new MessageResource(
