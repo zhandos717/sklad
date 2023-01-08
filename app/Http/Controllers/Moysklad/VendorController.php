@@ -40,16 +40,11 @@ class VendorController extends Controller
         MoySkladConfig::updateOrCreate(
             [
                 'app_id'     => config('moysklad.app_id'),
-                'account_id' => $request->input('account_id'),
-                'tis_token'  => $request->input('tis_token'),
+                'account_id' => $request->input('account_id')
             ],
             [
-                'access_token' => isset($request->get('access')[0]['access_token']) ? $request->get(
-                    'access'
-                )[0]['access_token'] : null,
-                'status'       => MoySkladConfig::ACTIVATED,
-                'info_message' => $request->input('infoMessage'),
-                'store'        => $request->input('store')
+                'tis_token' => $request->input('tis_token'),
+                'status'    => MoySkladConfig::ACTIVATED,
             ],
         );
 
