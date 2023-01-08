@@ -36,6 +36,9 @@
                 const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
                     window.document.getElementById("table").innerHTML = this.responseText;
+
+                    logReceivedMessage(this);
+
                 });
 
                 document.getElementById("objectId").value = receivedMessage.objectId;
