@@ -67,6 +67,11 @@
 <div id="object">
 
 </div>
+
+<button class="button--success button" onclick="window.print()">
+    print
+</button>
+
 </p>
 </body>
 </html>
