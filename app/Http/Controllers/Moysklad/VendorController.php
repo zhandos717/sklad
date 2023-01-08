@@ -35,11 +35,10 @@ class VendorController extends Controller
         ]);
     }
 
-    public function update(SettingsRequest $request, VendorService $vendorService)
+    public function update(UpdateSettingsRequest $request, VendorService $vendorService)
     {
         MoySkladConfig::updateOrCreate(
             [
-                'app_id'     => config('moysklad.app_id'),
                 'account_id' => $request->input('account_id')
             ],
             [

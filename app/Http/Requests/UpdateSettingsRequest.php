@@ -26,13 +26,8 @@ class UpdateSettingsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'accountId'   => 'required|string',
-            'appId'       => 'required|string',
-            'contextKey'  => 'sometimes|required|string',
-            'infoMessage' => 'sometimes|required|string',
-            'store'       => 'sometimes|required|string',
-            'status'      => 'sometimes|required|string',
-            'access'      => 'sometimes|required|array',
+            'account_id' => 'required|string',
+            'tis_token'  => 'required|string',
         ];
     }
 
