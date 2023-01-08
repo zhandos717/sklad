@@ -16,7 +16,7 @@
                 display: none;
             }
 
-            #object {
+            #table {
                 display: none;
             }
         }
@@ -35,7 +35,7 @@
             if (receivedMessage.name === 'Open') {
                 const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
-                    window.document.getElementById("object").innerHTML = this.responseText;
+                    window.document.getElementById("table").innerHTML = this.responseText;
                 });
 
                 document.getElementById("objectId").value = receivedMessage.objectId;
@@ -81,10 +81,10 @@
                 })
                 .then((result) => {
                     console.log(result);
-                    document.querySelector('#object').classList.toggle('hidden')
                     document.querySelector('#fiscal-receipt').innerHTML = result.data.view
                     window.print();
                     document.querySelector('#doing-popup').classList.toggle('hidden')
+                    document.querySelector('#alert-success').classList.toggle('hidden')
                 });
             e.preventDefault();
         }
@@ -92,7 +92,7 @@
 @endsection
 
 @section('content')
-    <div id="object">
+    <div id="table">
     </div>
     <div id="fiscal-receipt">
     </div>
