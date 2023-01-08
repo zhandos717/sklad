@@ -47,7 +47,7 @@
                     logSendingMessage(sendingMessage);
                     hostWindow.postMessage(sendingMessage, '*');
 
-                }, 200);
+                }, 100);
             }
         });
 
