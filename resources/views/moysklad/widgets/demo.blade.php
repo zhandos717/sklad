@@ -84,7 +84,8 @@
                     document.querySelector('#fiscal-receipt').innerHTML = result.data.view
                     window.print();
                     document.querySelector('#doing-popup').classList.toggle('hidden')
-                    document.querySelector('#alert-success').classList.toggle('hidden')
+                    document.querySelector('.alert-success').classList.toggle('hidden')
+                    document.querySelector('.button').classList.toggle('hidden')
                 });
             e.preventDefault();
         }
