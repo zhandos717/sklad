@@ -65,7 +65,7 @@
                     <hr class="my-4">
                     <button id="btn" type="submit"
                             class="btn button button--success btn-lg text-white">
-                        Toggle
+                        Сохранить
                     </button>
                 </form>
             @endif
