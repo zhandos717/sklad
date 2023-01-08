@@ -20,4 +20,9 @@ class SaleController
 
         return new SaleStoreResource($data);
     }
+
+    public function test()
+    {
+        return view('fiscal-receipt');
+    }
 }

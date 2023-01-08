@@ -225,7 +225,7 @@
                 <div class="ml-auto qr"
                      data-value="'123"
                      data-v-39ad3ec8="" style="width: 42px;">
-                    </div>
+                </div>
 
             </td>
         </tr>
@@ -297,6 +297,8 @@
 
     // и помещаем в него сгенерированный библиотекой QR-код
     qrCodeOutput.append(QRCode.generateHTML(text, {}))
+
+    window.print();
 </script>
 </body>
 </html>

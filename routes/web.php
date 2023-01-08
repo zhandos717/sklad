@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/sale', [SaleController::class, 'store'])->name('sale');
 
+Route::post('/sale-test', [SaleController::class, 'test'])->name('sale.test');
+
 Route::post('settings/update', [VendorController::class, 'update'])->name('settings.update');
 
 Route::get('popup', [PopupController::class, 'index'])->name('popup');
