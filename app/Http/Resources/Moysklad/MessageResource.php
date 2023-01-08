@@ -6,7 +6,7 @@ namespace App\Http\Resources\Moysklad;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SettingResource extends JsonResource
+class MessageResource extends JsonResource
 {
     public function toArray($request): array
     {

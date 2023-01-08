@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Moysklad;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SettingsRequest;
 use App\Http\Requests\UpdateSettingsRequest;
-use App\Http\Resources\Moysklad\SettingResource;
+use App\Http\Resources\Moysklad\MessageResource;
 use App\Http\Resources\Moysklad\VendorResource;
 use App\Models\MoySkladConfig;
 use App\Services\Moysklad\VendorService;
@@ -37,17 +37,19 @@ class VendorController extends Controller
 
     public function update(UpdateSettingsRequest $request, VendorService $vendorService)
     {
-        MoySkladConfig::updateOrCreate(
-            [
-                'account_id' => $request->input('account_id')
-            ],
-            [
-                'tis_token' => $request->input('tis_token'),
-                'status'    => MoySkladConfig::ACTIVATED,
-            ],
-        );
-
         $moySklad = MoySkladConfig::whereAccountId($request->input('account_id'))->first();
+
+        if (is_null($moySklad)) {
+            return new MessageResource(
+                new class {
+                    public string $type = 'error';
+                    public string $message = 'Аккаунт не найден!';
+                }
+            );
+        }
+
+        $moySklad->tis_token = $request->input('tis_token');
+        $moySklad->status = MoySkladConfig::ACTIVATED;
 
         $vendorService->updateAppStatus(
             config('moysklad.app_id'),
@@ -55,8 +57,9 @@ class VendorController extends Controller
             $moySklad->status
         );
 
-        return new SettingResource(
+        return new MessageResource(
             new class {
+                public string $type = 'success';
                 public string $message = 'Настройки успешно обновлены!';
             }
         );
