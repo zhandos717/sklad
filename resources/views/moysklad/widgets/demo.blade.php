@@ -98,7 +98,7 @@
         <input hidden name="accountId" value="{{$accountId}}">
     </label>
     <label>
-        <input hidden name="objectId" id="objectId" value="{{$objectId}}">
+        <input hidden name="objectId" id="objectId" >
     </label>
     <button class="button button--success" type="submit" value="12">
         Печать чека
