@@ -20,10 +20,7 @@
             </tr>
         @endforeach
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td style="font-size: 200%;">{{ $items->sum('total')  }} тг.</td>
+            <td colspan="4" class="text-center">{{ $items->sum('total')  }} тг.</td>
         </tr>
         <tbody>
     </table>
