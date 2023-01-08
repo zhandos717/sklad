@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-
     <title>DummyApp:</title>
     <meta name="description" content="TIS KZ">
     <meta name="author" content="">
@@ -50,15 +49,6 @@
             console.log(prefix + " message: " + messageAsString);
         }
 
-        function toggleBorders(value) {
-            body().className = value ? "borders" : "";
-        }
-
-        function showDimensions() {
-            var dimensions = window.document.getElementById("dimensions");
-            dimensions.innerText = body().offsetWidth + " x " + body().offsetHeight
-        }
-
         function body() {
             return window.document.body;
         }
@@ -80,17 +70,24 @@
         }
 
     </script>
+    <style>
+        .hide {
+            display: none;
+        }
+        @media print {
+            #receipt {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
 <div id="object">
 
+</div>
+<div class="receipt hide">
 
 </div>
-
-<div class="receipt">
-
-</div>
-
 <form method="POST" onsubmit="send(event,this)" action="{{route('sale')}}" id="click-form" method="POST">
     <label>
         <input name="uuid" value="{{ \Ramsey\Uuid\Uuid::uuid4()->toString()  }}" hidden="">
@@ -100,7 +97,7 @@
         <input hidden name="accountId" value="{{$accountId}}">
     </label>
     <label>
-        <input hidden name="objectId" id="objectId" >
+        <input hidden name="objectId" id="objectId">
     </label>
     <button class="button button--success" type="submit" value="12">
         Печать чека
@@ -113,6 +110,5 @@
         <span id="doing-action-name"></span>
     </div>
 </form>
-
 </body>
 </html>
