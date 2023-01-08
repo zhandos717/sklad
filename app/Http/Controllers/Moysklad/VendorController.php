@@ -54,11 +54,14 @@ class VendorController extends Controller
         $moySklad->tis_token = $request->input('tis_token');
         $moySklad->status = MoySkladConfig::ACTIVATED;
 
+        $moySklad->save();
+
         $vendorService->updateAppStatus(
             config('moysklad.app_id'),
             $request->input('account_id'),
             MoySkladConfig::STATUS_TYPES[MoySkladConfig::ACTIVATED]
         );
+
 
         return new MessageResource(
             new class {
