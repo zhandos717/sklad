@@ -16,7 +16,7 @@ class WidgetController extends Controller
     public function customerOrderWidget(UserContextLoaderService $userContextLoaderService): Factory|View|Application
     {
         return view(
-            'moysklad.widgets.cashbox',
+            'moysklad.widgets.demo',
             array_merge(
                 collect($userContextLoaderService->employee)->toArray(),
                 ['entity' => 'customerorder']
