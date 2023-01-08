@@ -14,11 +14,11 @@ class SettingController extends Controller
     {
         MoySkladConfig::updateOrCreate(
             [
-                'app_id'     => config('moysklad.app_id'),
-                'account_id' => $request->input('account_id'),
-                'tis_token'  => $request->input('tis_token'),
+                'account_id' => $request->input('account_id')
             ],
             [
+                'app_id'     => config('moysklad.app_id'),
+                'tis_token'  => $request->input('tis_token'),
                 'access_token' => isset($request->get('access')[0]['access_token']) ? $request->get(
                     'access'
                 )[0]['access_token'] : null,
