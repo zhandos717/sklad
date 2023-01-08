@@ -31,7 +31,7 @@
                     logSendingMessage(sendingMessage);
                     hostWindow.postMessage(sendingMessage, '*');
 
-                }, getOpenFeedbackDelay());
+                }, 200);
             }
         });
 
@@ -46,11 +46,6 @@
         function logMessage(prefix, msg) {
             const messageAsString = JSON.stringify(msg);
             console.log(prefix + " message: " + messageAsString);
-        }
-
-
-        function getOpenFeedbackDelay() {
-            return window.document.getElementById("openFeedbackDelay").value
         }
 
         function toggleBorders(value) {
