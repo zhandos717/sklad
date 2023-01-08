@@ -119,28 +119,6 @@
 @endsection
 @section('content')
     <div class="content">
-        <div id="object"></div>
-        <div class="border-danger" id="object-new"></div>
-        <div class="hidden alert alert-danger d-print-none " id="result-error">
-            ⚠ Ошибка при отправке запроса.
-            <br/> Попробуйте позже или обратитесь к администратору аккаунта МойСклад.
-        </div>
-        <form method="POST" action="{{route('sale.test')}}" id="click-form" method="POST">
-            <input name="uuid" value="{{ \Ramsey\Uuid\Uuid::uuid4()->toString()  }}" hidden="">
-            @csrf
-            <input hidden name="accountId" value="{{$accountId}}">
-            <input hidden name="objectId" value="{{$objectId}}">
-            <button class="button button--success" type="submit" value="12">
-                Печать чека
-            </button>
-            <div class="hidden" id="doing-popup">
-                <div class="d-flex justify-content-center">
-                    <div class="spinner-border" role="status">
-                    </div>
-                </div>
-                <span id="doing-action-name">
-                </span>
-            </div>
-        </form>
+        ПРивет
     </div>
 @endsection

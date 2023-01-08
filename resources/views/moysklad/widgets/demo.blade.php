@@ -20,6 +20,8 @@
                     window.document.getElementById("object").innerHTML = this.responseText;
                 });
 
+                document.getElementById("objectId").value = receivedMessage.objectId;
+
                 oReq.open("GET", '/widgets/get-item?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
                 oReq.send();
 
@@ -60,18 +62,55 @@
         function body() {
             return window.document.body;
         }
+
+
+        function send(e, form) {
+            fetch(form.action, {method: 'post', body: new FormData(form)})
+                .then((response) => {
+                    return response.json();
+                })
+                .then((result) => {
+                    console.log(result);
+                    document.querySelector('#object').classList.toggle('hidden')
+                    document.querySelector('#click-form').classList.toggle('hidden')
+                    document.querySelector('.receipt').innerHTML = result.data.view
+                });
+            e.preventDefault();
+        }
+
     </script>
 </head>
 <body>
-<p>
 <div id="object">
 
 </div>
 
-<button class="button--success button" onclick="window.print()">
-    print
-</button>
+<div class="receipt">
 
-</p>
+</div>
+
+<form method="POST" onsubmit="send(event,this)" action="{{route('sale')}}" id="click-form" method="POST">
+    <label>
+        <input name="uuid" value="{{ \Ramsey\Uuid\Uuid::uuid4()->toString()  }}" hidden="">
+    </label>
+    @csrf
+    <label>
+        <input hidden name="accountId" value="{{$accountId}}">
+    </label>
+    <label>
+        <input hidden name="objectId" id="objectId" value="{{$objectId}}">
+    </label>
+    <button class="button button--success" type="submit" value="12">
+        Печать чека
+    </button>
+    <div class="hidden" id="doing-popup">
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+            </div>
+        </div>
+        <span id="doing-action-name"></span>
+    </div>
+</form>
+
 </body>
 </html>
