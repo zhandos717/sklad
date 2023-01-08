@@ -63,7 +63,7 @@
                     console.log(result);
                     document.querySelector('#object').classList.toggle('hidden')
                     document.querySelector('#click-form').classList.toggle('hidden')
-                    document.querySelector('.receipt').innerHTML = result.data.view
+                    document.querySelector('#fiscal-receipt').innerHTML = result.data.view
                     window.print();
                 });
             e.preventDefault();
@@ -71,12 +71,21 @@
 
     </script>
     <style>
-        .hide {
+        #fiscal-receipt {
             display: none;
         }
+
         @media print {
-            #receipt {
+            #fiscal-receipt {
                 display: block;
+            }
+
+            #click-form {
+                display: none;
+            }
+
+            #object {
+                display: none;
             }
         }
     </style>
@@ -85,7 +94,7 @@
 <div id="object">
 
 </div>
-<div class="receipt hide">
+<div id="fiscal-receipt">
 
 </div>
 <form method="POST" onsubmit="send(event,this)" action="{{route('sale')}}" id="click-form" method="POST">
