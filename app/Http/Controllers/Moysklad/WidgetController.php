@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
+use App\Models\Sale;
 use App\Services\Moysklad\Requests\CustomerOrderRequest;
 use App\Services\Moysklad\Requests\ProductRequest;
 use App\Services\Moysklad\UserContextLoaderService;
@@ -38,9 +39,10 @@ class WidgetController extends Controller
         return view(
             'moysklad.widgets.cashbox',
             [
-                'items' => $items,
+                'sale'      => Sale::whereOrderId($request->objectId)->first(),
+                'items'     => $items,
                 'accountId' => $request->accountId,
-                'objectId' => $request->objectId,
+                'objectId'  => $request->objectId,
             ]
         );
     }

@@ -10,7 +10,8 @@ class SaleStoreResource extends JsonResource
     public function toArray($request): array|\JsonSerializable|Arrayable
     {
         return [
-            'view' => $this->resource['view']
+            'view' => $this->resource['view'],
+            'link' => $this->resource['link'],
         ];
     }
 }

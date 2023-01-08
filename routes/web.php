@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Moysklad\IframeController;
-use App\Http\Controllers\Moysklad\SettingController;
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\WidgetController;
 use App\Http\Controllers\Moysklad\SaleController;
@@ -10,8 +9,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/sale', [SaleController::class, 'store'])->name('sale');
-
-Route::post('/sale-test', [SaleController::class, 'test'])->name('sale.test');
 
 Route::post('settings/update', [VendorController::class, 'update'])->name('settings.update');
 

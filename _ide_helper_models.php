@@ -16,7 +16,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property string|null $name
- * @property int|null $price
+ * @property string|null $price
  * @property int|null $quantity
  * @property int|null $discount
  * @property int|null $kgd_code
@@ -110,9 +110,10 @@ namespace App\Models{
  * @property string $price
  * @property int $type
  * @property int $moy_sklad_config_id
- * @property mixed|null $fiscal_receipt
+ * @property array|null $fiscal_receipt
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $order_id
  * @property-read \App\Models\Item|null $items
  * @property-read \App\Models\Item|null $moySkladConfig
  * @method static \Illuminate\Database\Eloquent\Builder|Sale newModelQuery()
@@ -122,6 +123,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereFiscalReceipt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereMoySkladConfigId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereOrderId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sale whereUpdatedAt($value)

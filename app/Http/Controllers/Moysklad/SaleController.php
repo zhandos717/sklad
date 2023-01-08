@@ -16,13 +16,8 @@ class SaleController
         Request $request,
         SaleService $saleService
     ) {
-        $data = $saleService->fiscalize($request->get('accountId'));
+        $data = $saleService->fiscalize($request->get('accountId') , $request->get('objectId'));
 
         return new SaleStoreResource($data);
-    }
-
-    public function test()
-    {
-        return view('fiscal-receipt');
     }
 }
