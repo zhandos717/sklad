@@ -58,7 +58,7 @@
             }
         }
 
-        $('.button').click(function () {
+        $('.1button').click(function () {
             const form = $(this).parents('form');
             const button = $(this);
             const buttonId = Number(button.attr('value'));
