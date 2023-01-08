@@ -63,10 +63,10 @@
     </script>
 </head>
 <body>
-    <b title="Используя objectId, переданный в сообщении Open, можем получить через JSON API открытую пользователем сущность/документ">Открыт
-        объект <span class="hint">(?)</span>:</b> <span id="object"></span></p>
+<p>
+<div id="object">
 
-<p><b title="Синтетическая задержка, позволяющая посмотреть как работает функционал OpenFeedback">Задержка OpenFeedback,
-        мс <span class="hint">(?)</span>:</b> <input type="text" id="openFeedbackDelay" value="300"></p>
+</div>
+</p>
 </body>
 </html>
