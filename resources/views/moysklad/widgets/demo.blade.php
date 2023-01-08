@@ -74,6 +74,7 @@
                     document.querySelector('#object').classList.toggle('hidden')
                     document.querySelector('#click-form').classList.toggle('hidden')
                     document.querySelector('.receipt').innerHTML = result.data.view
+                    window.print();
                 });
             e.preventDefault();
         }
