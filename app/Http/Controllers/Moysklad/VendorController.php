@@ -53,8 +53,8 @@ class VendorController extends Controller
 
         $vendorService->updateAppStatus(
             config('moysklad.app_id'),
-            $moySklad->account_id,
-            $moySklad->status
+            $request->input('account_id'),
+            MoySkladConfig::ACTIVATED
         );
 
         return new MessageResource(
