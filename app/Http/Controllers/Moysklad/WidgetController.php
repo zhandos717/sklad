@@ -30,16 +30,17 @@ class WidgetController extends Controller
             $path = explode('/', $item->assortment->meta->href);
             $objectId = end($path);
             $item->product = $product->setObject($objectId)->content();
-            $item->total = $item->quantity * $item->price;
+            $item->total = ($item->quantity * $item->price) / 100;
+            $item->price = $item->price / 100;
             return $item;
         });
 
         return view(
             'moysklad.widgets.cashbox',
             [
-                'items'     => $items,
+                'items' => $items,
                 'accountId' => $request->accountId,
-                'objectId'  => $request->objectId,
+                'objectId' => $request->objectId,
             ]
         );
     }

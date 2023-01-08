@@ -84,10 +84,10 @@
                     document.querySelector('#object').classList.toggle('hidden')
                     document.querySelector('#fiscal-receipt').innerHTML = result.data.view
                     window.print();
+                    document.querySelector('#doing-popup').classList.toggle('hidden')
                 });
             e.preventDefault();
         }
-
     </script>
 @endsection
 
@@ -95,6 +95,9 @@
     <div id="object">
     </div>
     <div id="fiscal-receipt">
+    </div>
+    <div class="alert alert-success">
+        Операция фискализирована!
     </div>
     <form method="POST" onsubmit="send(event,this)" action="{{route('sale')}}" id="click-form" method="POST">
         <label>
@@ -115,7 +118,9 @@
                 <div class="spinner-border" role="status">
                 </div>
             </div>
-            <span id="doing-action-name"></span>
+            <span id="message">
+
+            </span>
         </div>
     </form>
 @stop
