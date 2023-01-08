@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/sale', [SaleController::class, 'store'])->name('sale');
 
-
-Route::post('settings/update', [SettingController::class, 'update'])->name('settings.update');
+Route::post('settings/update', [VendorController::class, 'update'])->name('settings.update');
 
 Route::get('popup', [PopupController::class, 'index'])->name('popup');
 
@@ -23,6 +22,7 @@ Route::controller(VendorController::class)
             '/',
             'store'
         );
+
         Route::delete(
             '/',
             'destroy'

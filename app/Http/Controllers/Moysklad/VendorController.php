@@ -36,31 +36,31 @@ class VendorController extends Controller
 
     public function update(UpdateSettingsRequest $request, VendorService $vendorService): SettingResource
     {
-
         $moySklad = MoySkladConfig::updateOrCreate(
             [
-                'app_id'     => $request->input('appId'),
-                'account_id' => $request->input('accountId'),
+                'app_id'         => $request->input('appId'),
+                'account_id'     => $request->input('accountId'),
                 'prosklad_token' => $request->input('tis_token'),
             ],
             [
                 'access_token' => isset($request->get('access')[0]['access_token']) ? $request->get(
                     'access'
                 )[0]['access_token'] : null,
-
                 'status'       => MoySkladConfig::ACTIVATED,
-                'info_message' => $request->input('infoMessage'),
-                'store'        => $request->input('store')
             ],
         );
 
-        $vendorService->updateAppStatus(config('moysklad.app_id'), $moySklad->account_id,
+        $vendorService->updateAppStatus(
+            config('moysklad.app_id'),
+            $moySklad->account_id,
             $moySklad->status
         );
 
-        return new SettingResource(new class{
-            public string $message = 'Настройки успешно обновлены!';
-        });
+        return new SettingResource(
+            new class {
+                public string $message = 'Настройки успешно обновлены!';
+            }
+        );
     }
 
     public function destroy(
