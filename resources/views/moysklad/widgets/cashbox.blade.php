@@ -89,7 +89,6 @@
                     $('#doing-popup').hide();
                     $('#object').show();
                     $('#object-new').html(res.data.view);
-                    print();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     $('#doing-popup').hide();
@@ -121,7 +120,7 @@
 @section('content')
     <div class="content">
         <div id="object"></div>
-        <div class="hide" id="object-new"></div>
+        <div class="border-danger" id="object-new"></div>
         <div class="hidden alert alert-danger d-print-none " id="result-error">
             ⚠ Ошибка при отправке запроса.
             <br/> Попробуйте позже или обратитесь к администратору аккаунта МойСклад.
