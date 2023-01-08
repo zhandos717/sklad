@@ -96,7 +96,7 @@
     </div>
     <div id="fiscal-receipt">
     </div>
-    <div class="alert alert-success">
+    <div class="alert alert-success hidden">
         Операция фискализирована!
     </div>
     <form method="POST" onsubmit="send(event,this)" action="{{route('sale')}}" id="click-form" method="POST">
