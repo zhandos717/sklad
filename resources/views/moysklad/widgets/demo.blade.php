@@ -74,6 +74,7 @@
 
 
         function send(e, form) {
+            document.querySelector('#doing-popup').classList.toggle('hidden')
             fetch(form.action, {method: 'post', body: new FormData(form)})
                 .then((response) => {
                     return response.json();
@@ -81,7 +82,6 @@
                 .then((result) => {
                     console.log(result);
                     document.querySelector('#object').classList.toggle('hidden')
-                    document.querySelector('#click-form').classList.toggle('hidden')
                     document.querySelector('#fiscal-receipt').innerHTML = result.data.view
                     window.print();
                 });
