@@ -34,8 +34,6 @@
                     window.document.getElementById("content").innerHTML = this.responseText;
                 });
 
-                document.getElementById("objectId").value = receivedMessage.objectId;
-
                 oReq.open("GET", '/widgets/get-item?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
                 oReq.send();
 
