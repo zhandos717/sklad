@@ -283,21 +283,7 @@
     </table>
 </div>
 
-
-<script src="http://cosmic.mearie.org/2011/01/qrjs/qr.js"></script>
-
 <script>
-    const el = (selector) => document.querySelector(selector);
-
-    // получаем блок куда будет выводиться QR-код
-    let qrCodeOutput = el('.qr');
-
-    // получаем содержимое текстового поля
-    let text = el('.qr').data('value');
-
-    // и помещаем в него сгенерированный библиотекой QR-код
-    qrCodeOutput.append(QRCode.generateHTML(text, {}))
-
     window.print();
 </script>
 </body>
