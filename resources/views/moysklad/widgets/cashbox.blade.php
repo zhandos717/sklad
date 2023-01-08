@@ -125,7 +125,7 @@
             ⚠ Ошибка при отправке запроса.
             <br/> Попробуйте позже или обратитесь к администратору аккаунта МойСклад.
         </div>
-        <form method="POST" action="{{route('sale-test')}}" id="click-form" method="POST">
+        <form method="POST" action="{{route('sale.test')}}" id="click-form" method="POST">
             <input name="uuid" value="{{ \Ramsey\Uuid\Uuid::uuid4()->toString()  }}" hidden="">
             @csrf
             <input hidden name="accountId" value="{{$accountId}}">
