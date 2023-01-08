@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>DummyApp: {{$contextName}}</title>
+    <title>DummyApp:</title>
     <meta name="description" content="TIS KZ">
     <meta name="author" content="">
     <script>
