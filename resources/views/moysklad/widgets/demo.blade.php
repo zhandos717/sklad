@@ -35,6 +35,9 @@
             if (receivedMessage.name === 'Open') {
                 const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
+
+                    console.log(this.response)
+
                     window.document.getElementById("table").innerHTML = this.responseText;
                 });
 
@@ -80,7 +83,6 @@
                     return response.json();
                 })
                 .then((result) => {
-                    console.log(result);
                     document.querySelector('#fiscal-receipt').innerHTML = result.data.view
                     window.print();
                     document.querySelector('#doing-popup').classList.toggle('hidden')
@@ -118,12 +120,8 @@
                 </div>
             </div>
         </div>
-
         <button class="button button--success" type="submit" value="12">
             Печать чека
         </button>
-
     </form>
 @stop
-
-

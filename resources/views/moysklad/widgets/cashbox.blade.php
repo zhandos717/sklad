@@ -1,3 +1,9 @@
+@if(isset($sale->fiscal_receipt))
+    <div class="alert alert-success hidden">
+        Чек за данную операцию уже выбит!
+    </div>
+@endif
+
 <table class="ui-table">
     <thead>
     <tr>
