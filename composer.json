@@ -14,7 +14,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/telescope": "^4.10",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "orchid/platform": "^13.9"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
