@@ -123,12 +123,7 @@
         </div>
     </section>
 </main>
-
 <footer id="footer" class="footer">
-    <div class="footer-newsletter">
-        <div class="container">
-        </div>
-    </div>
     <div class="footer-top">
         <div class="container">
             {{--            <div class="row gy-4">--}}
@@ -170,7 +165,6 @@
         <div class="copyright"> © Copyright <strong><span>Tis KZ</span></strong>. All Rights Reserved</div>
     </div>
 </footer>
-
 <script src="{{asset('assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
 <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
