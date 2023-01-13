@@ -11,8 +11,8 @@
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet">
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/aos/aos.css')  }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css')  }}" rel="stylesheet">
@@ -51,10 +51,11 @@
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
                 <h1 data-aos="fade-up">Данная интеграция позволяет передавать данные о реализации в ТИС Prosklad</h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">Увеличьте пороги по доходу и НДС, оставаясь на упрощенке</h2>
+                <h2 data-aos="fade-up" data-aos-delay="400">Увеличьте пороги по доходу и НДС, оставаясь на
+                    упрощенке</h2>
                 <div data-aos="fade-up" data-aos-delay="600">
                     <div class="text-center text-lg-start">
-                        <a href="#go"
+                        <a href="https://online.moysklad.ru/app/#apps?id=7b9b82f5-4f27-4e25-bc55-6f8717ff66c7"
                            class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                             <span>Начать</span>
                             <i class="bi bi-arrow-right"></i>
