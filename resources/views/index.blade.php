@@ -95,7 +95,7 @@
                 {{--                            </div>--}}
                 {{--                        </div>--}}
                 {{--                    </div>--}}
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <form action="forms/contact" method="post" class="php-email-form">
                         <div class="row gy-4">
                             @csrf
