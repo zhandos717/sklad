@@ -4,11 +4,8 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>TIS KZ</title>
-
-    <meta name="description" content="Простая и понятная программа учета товаров и продаж. Начать бесплатно!"/>
     <meta content="Данная интеграция позволяет передавать данные о реализации в ТИС Prosklad" name="description">
     <meta content="Мой склад ТИС TIS" name="keywords">
-
     <!-- Favicons -->
     <link href="{{ assert('assets/img/favicon.png')  }}" rel="icon">
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
