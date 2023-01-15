@@ -1,12 +1,10 @@
 <?php
 
-declare(strict_types = 1);
-
-namespace App\Http\Requests;
+namespace App\Http\Requests\Moysklad;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SettingsRequest extends FormRequest
+class IframeIndexRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,7 +15,6 @@ class SettingsRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -26,8 +23,7 @@ class SettingsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'account_id' => 'required|string',
-            'tis_token' => 'required|string',
+            'contextKey' => 'sometimes|required|string',
         ];
     }
 }

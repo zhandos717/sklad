@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Moysklad;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ConfigRequest extends FormRequest
+class WidgetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,6 +15,7 @@ class ConfigRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *

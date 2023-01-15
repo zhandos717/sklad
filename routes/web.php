@@ -5,6 +5,7 @@ use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\WidgetController;
 use App\Http\Controllers\Moysklad\SaleController;
 use App\Http\Controllers\Moysklad\PopupController;
+use App\Http\Controllers\Telegram\Form;
 use Illuminate\Support\Facades\Route;
 
 

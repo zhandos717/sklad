@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Telegram\Form;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IframeIndexRequest extends FormRequest
+class SendRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,6 +15,7 @@ class IframeIndexRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,7 +24,10 @@ class IframeIndexRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'contextKey' => 'sometimes|required|string',
+            'email'   => 'sometimes|required|email',
+            'tel'     => 'sometimes|required|string',
+            'message' => 'sometimes|required|string',
+            'name'    => 'sometimes|required|string',
         ];
     }
 }

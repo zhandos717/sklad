@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Moysklad;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SettingsRequest;
-use App\Http\Requests\UpdateSettingsRequest;
+use App\Http\Requests\Moysklad\UpdateSettingsRequest;
 use App\Http\Resources\Moysklad\MessageResource;
 use App\Http\Resources\Moysklad\VendorResource;
 use App\Models\MoySkladConfig;

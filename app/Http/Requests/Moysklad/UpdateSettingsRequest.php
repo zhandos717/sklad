@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+declare(strict_types=1);
+
+namespace App\Http\Requests\Moysklad;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class WidgetRequest extends FormRequest
+class UpdateSettingsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +26,13 @@ class WidgetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'contextKey' => 'sometimes|required|string',
+            'account_id' => 'required|string',
+            'tis_token'  => 'required|string',
         ];
+    }
+
+    public function getAccessToken()
+    {
+        return $this->input('access');
     }
 }
