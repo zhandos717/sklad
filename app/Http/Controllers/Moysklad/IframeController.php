@@ -13,7 +13,7 @@ class IframeController extends Controller
     public function index(UserContextLoaderService $userContextLoaderService)
     {
         return view(
-            'iframe',
+            'moysklad.iframe',
             array_merge(
                 collect($userContextLoaderService->employee)->toArray(),
                 ['isAdmin' => $userContextLoaderService->isAdmin()]

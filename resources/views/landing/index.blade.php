@@ -137,10 +137,9 @@
                         <li><i class="bi bi-chevron-right"></i> <a href="#">О нас</a></li>
                     </ul>
                 </div>
-                {{--                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start"><h4>Contact Us</h4>--}}
-                {{--                    <p> A108 Adam Street <br> New York, NY 535022<br> United States <br><br> <strong>Phone:</strong> +1--}}
-                {{--                        5589 55488 55<br> <strong>Email:</strong> info@example.com<br></p>--}}
-                {{--                </div>--}}
+                <div id="contact" class="col-lg-3 col-md-12 footer-contact text-center text-md-start"><h4>Контакты</h4>
+                    <p><strong>Email:</strong> <a href="mailto:saudaspace@gmail.com"> saudaspace@gmail.com</a><br></p>
+                </div>
             </div>
         </div>
     </div>

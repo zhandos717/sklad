@@ -4,16 +4,12 @@ use App\Http\Controllers\Moysklad\IframeController;
 use App\Http\Controllers\Moysklad\VendorController;
 use App\Http\Controllers\Moysklad\WidgetController;
 use App\Http\Controllers\Moysklad\SaleController;
-use App\Http\Controllers\Moysklad\PopupController;
-use App\Http\Controllers\Telegram\Form;
 use Illuminate\Support\Facades\Route;
 
 
 Route::post('/sale', [SaleController::class, 'store'])->name('sale');
 
 Route::post('settings/update', [VendorController::class, 'update'])->name('settings.update');
-
-Route::get('popup', [PopupController::class, 'index'])->name('popup');
 
 Route::controller(VendorController::class)
     ->prefix('/vendor-endpoint/api/moysklad/vendor/{version}/apps/{appId}/{accountId}')
@@ -29,10 +25,9 @@ Route::controller(VendorController::class)
         );
     });
 
-Route::get('/iframe', [IframeController::class, 'index'])->name('iframe');
+Route::get('iframe', [IframeController::class, 'index'])->name('iframe');
 
-
-Route::view('descriptor', 'descriptor-xml');
+Route::view('descriptor', 'moysklad.descriptor-xml');
 
 Route::prefix('widgets')->controller(WidgetController::class)
     ->group(function () {
@@ -42,4 +37,4 @@ Route::prefix('widgets')->controller(WidgetController::class)
         Route::get('get-item', 'getItem')->name('demand.widget');
     });
 
-Route::view('/', 'index');
+Route::view('/', 'landing.index');
