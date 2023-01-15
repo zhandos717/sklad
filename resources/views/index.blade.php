@@ -103,7 +103,9 @@
                                                          placeholder="Ваше имя" required=""></div>
                             <div class="col-md-6 "><input type="email" class="form-control" name="email"
                                                           placeholder="Почта" required=""></div>
-                            <div class="col-md-12"><input type="tel" class="form-control" name="phone"
+                            <div class="col-md-12"><input type="tel" id="phone"
+                                                          placeholder="+7(777)777-77-77"
+                                                          class="form-control" name="phone"
                                                           placeholder="Телефон" required=""></div>
                             <div class="col-md-12"><textarea class="form-control" name="message" rows="6"
                                                              placeholder="Сообщение" required=""></textarea></div>
@@ -135,10 +137,10 @@
                         <li><i class="bi bi-chevron-right"></i> <a href="#">О нас</a></li>
                     </ul>
                 </div>
-{{--                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start"><h4>Contact Us</h4>--}}
-{{--                    <p> A108 Adam Street <br> New York, NY 535022<br> United States <br><br> <strong>Phone:</strong> +1--}}
-{{--                        5589 55488 55<br> <strong>Email:</strong> info@example.com<br></p>--}}
-{{--                </div>--}}
+                {{--                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start"><h4>Contact Us</h4>--}}
+                {{--                    <p> A108 Adam Street <br> New York, NY 535022<br> United States <br><br> <strong>Phone:</strong> +1--}}
+                {{--                        5589 55488 55<br> <strong>Email:</strong> info@example.com<br></p>--}}
+                {{--                </div>--}}
             </div>
         </div>
     </div>
@@ -147,6 +149,7 @@
     </div>
 </footer>
 <script src="{{asset('assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+<script src="https://unpkg.com/imask"></script>
 <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
