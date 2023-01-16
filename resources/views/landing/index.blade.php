@@ -11,8 +11,8 @@
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet">
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/aos/aos.css')  }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css')  }}" rel="stylesheet">
@@ -28,7 +28,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
         <a href="/" class="logo d-flex align-items-center">
             <img src="{{asset('assets/img/logo.png')}}" alt="">
-            <span>TIS KZ</span>
+            <span>Sauda Space </span>
         </a>
         <nav id="navbar" class="navbar">
             <ul>
@@ -46,7 +46,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up">Данная интеграция позволяет передавать данные о реализации в ТИС Prosklad</h1>
+                <h1 data-aos="fade-up">Используйте Sauda Space для интеграции МойСклад с ТИС Prosklad</h1>
                 <h2 data-aos="fade-up" data-aos-delay="400">Увеличьте пороги по доходу и НДС, оставаясь на
                     упрощенке</h2>
                 <div data-aos="fade-up" data-aos-delay="600">
@@ -103,7 +103,7 @@
                                                          placeholder="Ваше имя" required=""></div>
                             <div class="col-md-6 "><input type="email" class="form-control" name="email"
                                                           placeholder="Почта" required=""></div>
-                            <div class="col-md-12"><input type="tel" id="phone"
+                            <div class="col-md-12"><input type="tel" required="" id="phone"
                                                           placeholder="+7(777)777-77-77"
                                                           class="form-control" name="phone"
                                                           placeholder="Телефон" required=""></div>
@@ -126,10 +126,9 @@
     <div class="footer-top">
         <div class="container">
             <div class="row gy-4">
-                <div class="col-lg-5 col-md-12 footer-info"><a href="index.html" class="logo d-flex align-items-center">
-                        <img src="assets/img/logo.png" alt=""> <span>TIS KZ</span> </a>
-                    <p>Приобретая ТИС, вы получаете повышенные доходы за полугодие и увеличенный порог по НДС. Вы
-                        сможете увеличить чистую прибыль в 5 раз, и не терять деньги на налогах.</p>
+                <div class="col-lg-5 col-md-12 footer-info"><a href="/" class="logo d-flex align-items-center">
+                        <img src="assets/img/logo.png" alt=""> <span>Sauda Space</span> </a>
+                    <p>Используйте Sauda Space для интеграции МойСклад с ТИС Prosklad</p>
                 </div>
                 <div class="col-lg-3 col-6 footer-links"><h4>Полезные ссылки</h4>
                     <ul>
@@ -144,7 +143,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="copyright"> © Copyright <strong><span>Tis KZ</span></strong>. All Rights Reserved</div>
+        <div class="copyright"> © Copyright <strong><span>Sauda Space</span></strong>. All Rights Reserved</div>
     </div>
 </footer>
 <script src="{{asset('assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>

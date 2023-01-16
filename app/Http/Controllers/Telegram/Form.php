@@ -10,8 +10,6 @@ class Form extends Controller
 {
     public function send(SendRequest $request)
     {
-        // dd($request->all());
-
         $email = $request->get('email');
         $phone = $request->get('phone');
         $message = $request->get('message');
