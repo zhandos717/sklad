@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>TIS KZ</title>
-    <meta content="Данная интеграция позволяет передавать данные о реализации в ТИС Prosklad" name="description">
-    <meta content="Мой склад ТИС TIS" name="keywords">
+    <title>Sauda Space</title>
+    <meta content="Используйте Sauda Space для интеграции МойСклад с ТИС Prosklad<" name="description">
+    <meta content="Мой склад Sauda Space" name="keywords">
     <!-- Favicons -->
     <link href="{{ assert('assets/img/favicon.png')  }}" rel="icon">
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">

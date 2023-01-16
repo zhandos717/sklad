@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Telegram\Form;
+use App\Http\Controllers\Telegram\FormController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -8,4 +8,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/form/contact', [Form::class, 'send'])->name('form.contact');
+Route::post('/form/contact', [FormController::class, 'send'])->name('form.contact');

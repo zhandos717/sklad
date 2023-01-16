@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Telegram\Form\SendRequest;
 use DefStudio\Telegraph\Facades\Telegraph;
 
-class Form extends Controller
+class FormController extends Controller
 {
     public function send(SendRequest $request)
     {
