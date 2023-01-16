@@ -102,7 +102,7 @@
                             <div class="col-md-6"><input type="text" name="name" class="form-control"
                                                          placeholder="Ваше имя" required=""></div>
                             <div class="col-md-6 "><input type="email" class="form-control" name="email"
-                                                          placeholder="Почта" required=""></div>
+                                                          placeholder="Почта"></div>
                             <div class="col-md-12"><input type="tel" required="" id="phone"
                                                           placeholder="+7(777)777-77-77"
                                                           class="form-control" name="phone"
