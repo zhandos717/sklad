@@ -88,42 +88,39 @@
                                 нажимаем
                                 интеграции, вводим свой телефон и пароль, и получаем токен для интеграции</h4></div>
                         <p>
-                            С полученным токеном переходим в мой слад, для дальнейшей интеграции.
+                            С полученным токеном переходим в "Мой склад", для дальнейшей интеграции.
                         </p>
 
                     </div>
 
 
-                    <div class="tab-pane fade" id="tab2" role="tabpanel"><p>Consequuntur inventore voluptates
-                            consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae
-                            aspernatur quo suscipit voluptatem.</p>
-                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Repudiandae rerum
-                                velit modi et officia quasi facilis</h4></div>
-                        <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum
-                            non eveniet magni quaerat nemo et.</p>
-                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Incidunt non
-                                veritatis illum ea ut nisi</h4></div>
-                        <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure
-                            molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora.
-                            Quia et perferendis.</p></div>
+                    <div class="tab-pane fade" id="tab2" role="tabpanel">
+                        <p>В магазине приложении "Мой склад" находим приложение "Интеграция с ТИС для Казахстана" </p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Нажимаем
+                                "Установить"</h4></div>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Далее нажимаем
+                                "Начать работу"</h4></div>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>В открывшимся окно
+                                вводим токен с "WIPON KASSA", нажимаем сохранить </h4></div>
+
+                        <p>
+                            Далее переходим в продажи
+                        </p>
+                    </div>
 
 
-                    <div class="tab-pane fade" id="tab3" role="tabpanel"><p>Consequuntur inventore voluptates
-                            consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae
-                            aspernatur quo suscipit voluptatem.</p>
-                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Repudiandae rerum
-                                velit modi et officia quasi facilis</h4></div>
-                        <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum
-                            non eveniet magni quaerat nemo et.</p>
-                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Incidunt non
-                                veritatis illum ea ut nisi</h4></div>
-                        <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure
-                            molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora.
-                            Quia et perferendis.</p></div>
+                    <div class="tab-pane fade" id="tab3" role="tabpanel"><p>Для того что бы выбить чек достаточно зайти
+                            в продажи, в заказы покупателей</p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4></h4>
+                            В заказах покупателей видим виджет "Интеграция с ТИС для Казахстана"
+                        </div>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4></h4>
+                           Нажимаем "Выбить чек"
+                        </div>
+                    </div>
                 </div>
+                <div class="col-lg-6"><img src="{{asset('assets/img/features-2.png')}}" class="img-fluid" alt=""></div>
             </div>
-            <div class="col-lg-6"><img src="{{asset('assets/img/features-2.png')}}" class="img-fluid" alt=""></div>
-        </div>
     </section>
 
     <section id="contact" class="contact">
