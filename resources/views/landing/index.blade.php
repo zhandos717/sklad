@@ -79,13 +79,17 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="tab1" role="tabpanel"><p>
-                            В ТИС вам нужно подключить "WIPON KASSA" для фискализации продаж, в "WIPON KASSA" заходим в
-                            настройки, переходим в кассы, выбираем свою добавленную кассу. </p>
+                            В ТИС вам нужно подключить "WIPON KASSA" для фискализации продаж. </p>
+
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4> В "WIPON KASSA"
+                                заходим в
+                                настройки, переходим в кассы, выбираем свою добавленную кассу.</h4></div>
                         <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>В выбранной кассе
                                 нажимаем
                                 интеграции, вводим свой телефон и пароль, и получаем токен для интеграции</h4></div>
-                        <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum
-                            non eveniet magni quaerat nemo et.</p>
+                        <p>
+                            С полученным токеном переходим в мой слад, для дальнейшей интеграции.
+                        </p>
 
                     </div>
 
