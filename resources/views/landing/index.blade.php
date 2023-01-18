@@ -70,25 +70,24 @@
         <div class="row feture-tabs aos-init aos-animate" data-aos="fade-up">
             <div class="col-lg-6"><h3>Инструкция по настройке интеграции</h3>
                 <ul class="nav nav-pills mb-3" role="tablist">
-                    <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1" aria-selected="true" role="tab">Настройка TIS</a></li>
+                    <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1" aria-selected="true" role="tab">Настройка
+                            TIS</a></li>
                     <li><a class="nav-link" data-bs-toggle="pill" href="#tab2" aria-selected="false" role="tab"
                            tabindex="-1">Настройка интеграции</a></li>
                     <li><a class="nav-link" data-bs-toggle="pill" href="#tab3" aria-selected="false" role="tab"
                            tabindex="-1">Выбить чек</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane fade active show" id="tab1" role="tabpanel"><p>Consequuntur inventore
-                            voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima
-                            nihil quae aspernatur quo suscipit voluptatem.</p>
-                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Repudiandae rerum
-                                velit modi et officia quasi facilis</h4></div>
+                    <div class="tab-pane fade active show" id="tab1" role="tabpanel"><p>
+                            В ТИС вам нужно подключить "WIPON KASSA" для фискализации продаж, в "WIPON KASSA" заходим в
+                            настройки, переходим в кассы, выбираем свою добавленную кассу. </p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>В выбранной кассе
+                                нажимаем
+                                интеграции, вводим свой телефон и пароль, и получаем токен для интеграции</h4></div>
                         <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum
                             non eveniet magni quaerat nemo et.</p>
-                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Incidunt non
-                                veritatis illum ea ut nisi</h4></div>
-                        <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure
-                            molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora.
-                            Quia et perferendis.</p></div>
+
+                    </div>
 
 
                     <div class="tab-pane fade" id="tab2" role="tabpanel"><p>Consequuntur inventore voluptates
