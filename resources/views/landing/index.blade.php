@@ -68,8 +68,7 @@
 <main id="main">
     <section id="instruction" class="features">
         <div class="row feture-tabs aos-init aos-animate" data-aos="fade-up">
-            <div class="col-lg-6"><h3>Neque officiis dolore maiores et exercitationem quae est seda lidera pat
-                    claero</h3>
+            <div class="col-lg-6"><h3>Инструкция по настройке интеграции</h3>
                 <ul class="nav nav-pills mb-3" role="tablist">
                     <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1" aria-selected="true" role="tab">Настройка
                             TIS</a></li>
