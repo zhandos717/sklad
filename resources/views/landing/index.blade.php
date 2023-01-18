@@ -33,7 +33,7 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="#hero">Главная</a></li>
-                {{--                <li><a class="nav-link scrollto" href="#about">О нас</a></li>--}}
+                <li><a class="nav-link scrollto" href="#instruction">Инструкция</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Контакты</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -121,6 +121,60 @@
             </div>
         </div>
     </section>
+    <section id="instruction">
+        <div class="row feture-tabs aos-init aos-animate" data-aos="fade-up">
+            <div class="col-lg-6"><h3>Инструкция по настройке интеграции</h3>
+                <ul class="nav nav-pills mb-3" role="tablist">
+                    <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1" aria-selected="true" role="tab">Saepe
+                            fuga</a></li>
+                    <li><a class="nav-link" data-bs-toggle="pill" href="#tab2" aria-selected="false" role="tab"
+                           tabindex="-1">Voluptates</a></li>
+                    <li><a class="nav-link" data-bs-toggle="pill" href="#tab3" aria-selected="false" role="tab"
+                           tabindex="-1">Corrupti</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="tab1" role="tabpanel"><p>Consequuntur inventore
+                            voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima
+                            nihil quae aspernatur quo suscipit voluptatem.</p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Repudiandae rerum
+                                velit modi et officia quasi facilis</h4></div>
+                        <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum
+                            non eveniet magni quaerat nemo et.</p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Incidunt non
+                                veritatis illum ea ut nisi</h4></div>
+                        <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure
+                            molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora.
+                            Quia et perferendis.</p></div>
+                    <div class="tab-pane fade" id="tab2" role="tabpanel"><p>Consequuntur inventore voluptates
+                            consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae
+                            aspernatur quo suscipit voluptatem.</p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Repudiandae rerum
+                                velit modi et officia quasi facilis</h4></div>
+                        <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum
+                            non eveniet magni quaerat nemo et.</p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Incidunt non
+                                veritatis illum ea ut nisi</h4></div>
+                        <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure
+                            molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora.
+                            Quia et perferendis.</p></div>
+                    <div class="tab-pane fade" id="tab3" role="tabpanel"><p>Consequuntur inventore voluptates
+                            consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae
+                            aspernatur quo suscipit voluptatem.</p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Repudiandae rerum
+                                velit modi et officia quasi facilis</h4></div>
+                        <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum
+                            non eveniet magni quaerat nemo et.</p>
+                        <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Incidunt non
+                                veritatis illum ea ut nisi</h4></div>
+                        <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure
+                            molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora.
+                            Quia et perferendis.</p></div>
+                </div>
+            </div>
+            <div class="col-lg-6"><img src="assets/img/features-2.png" class="img-fluid" alt=""></div>
+        </div>
+    </section>
+
 </main>
 <footer id="footer" class="footer">
     <div class="footer-top">
