@@ -67,15 +67,14 @@
 </section><!-- End Hero -->
 <main id="main">
     <section id="instruction" class="features">
-        <div class="row feture-tabs aos-init aos-animate" data-aos="fade-up">
+        <div class="row feature-tabs aos-init aos-animate" data-aos="fade-up">
             <div class="col-lg-6"><h3>Инструкция по настройке интеграции</h3>
                 <ul class="nav nav-pills mb-3" role="tablist">
-                    <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1" aria-selected="true" role="tab">Saepe
-                            fuga</a></li>
+                    <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1" aria-selected="true" role="tab">Настройка TIS</a></li>
                     <li><a class="nav-link" data-bs-toggle="pill" href="#tab2" aria-selected="false" role="tab"
-                           tabindex="-1">Voluptates</a></li>
+                           tabindex="-1">Настройка интеграции</a></li>
                     <li><a class="nav-link" data-bs-toggle="pill" href="#tab3" aria-selected="false" role="tab"
-                           tabindex="-1">Corrupti</a></li>
+                           tabindex="-1">Выбить чек</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="tab1" role="tabpanel"><p>Consequuntur inventore
@@ -116,7 +115,7 @@
                             Quia et perferendis.</p></div>
                 </div>
             </div>
-            <div class="col-lg-6"><img src="assets/img/features-2.png" class="img-fluid" alt=""></div>
+            <div class="col-lg-6"><img src="{{asset('assets/img/features-2.png')}}" class="img-fluid" alt=""></div>
         </div>
     </section>
 
