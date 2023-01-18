@@ -115,13 +115,12 @@
                             В заказах покупателей видим виджет "Интеграция с ТИС для Казахстана"
                         </div>
                         <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4></h4>
-                           Нажмите "Выбить чек"
+                            Нажмите "Выбить чек"
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6"><img src="{{asset('assets/img/features-2.png')}}" class="img-fluid" alt=""></div>
             </div>
-        </div>
     </section>
 
     <section id="contact" class="contact">
