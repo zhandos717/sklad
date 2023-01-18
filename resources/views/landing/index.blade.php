@@ -68,7 +68,8 @@
 <main id="main">
     <section id="instruction" class="features">
         <div class="row feture-tabs aos-init aos-animate" data-aos="fade-up">
-            <div class="col-lg-6"><h3>Инструкция по настройке интеграции</h3>
+            <div class="col-lg-6"><h3>Neque officiis dolore maiores et exercitationem quae est seda lidera pat
+                    claero</h3>
                 <ul class="nav nav-pills mb-3" role="tablist">
                     <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1" aria-selected="true" role="tab">Настройка
                             TIS</a></li>
@@ -80,7 +81,6 @@
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="tab1" role="tabpanel"><p>
                             В ТИС вам нужно подключить "WIPON KASSA" для фискализации продаж. </p>
-
                         <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4> В "WIPON KASSA"
                                 заходим в
                                 настройки, переходим в кассы, выбираем свою добавленную кассу.</h4></div>
@@ -90,10 +90,7 @@
                         <p>
                             С полученным токеном переходим в "Мой склад", для дальнейшей интеграции.
                         </p>
-
                     </div>
-
-
                     <div class="tab-pane fade" id="tab2" role="tabpanel">
                         <p>В магазине приложении "Мой склад" находим приложение "Интеграция с ТИС для Казахстана" </p>
                         <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>Нажимаем
@@ -102,13 +99,10 @@
                                 "Начать работу"</h4></div>
                         <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4>В открывшимся окно
                                 вводим токен с "WIPON KASSA", нажимаем сохранить </h4></div>
-
                         <p>
                             Далее переходим в продажи
                         </p>
                     </div>
-
-
                     <div class="tab-pane fade" id="tab3" role="tabpanel"><p>Для того что бы выбить чек достаточно зайти
                             в продажи, в заказы покупателей</p>
                         <div class="d-flex align-items-center mb-2"><i class="bi bi-check2"></i><h4></h4>
@@ -119,10 +113,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6"><img src="{{asset('assets/img/features-2.png')}}" class="img-fluid" alt=""></div>
             </div>
+            <div class="col-lg-6"><img src="assets/img/features-2.png" class="img-fluid" alt=""></div>
+        </div>
     </section>
-
     <section id="contact" class="contact">
         <div class="container aos-init aos-animate" data-aos="fade-up">
             <header class="section-header"><h2>Контакты</h2>
@@ -178,8 +172,6 @@
             </div>
         </div>
     </section>
-
-
 </main>
 <footer id="footer" class="footer">
     <div class="footer-top">
@@ -195,7 +187,7 @@
                         <li><i class="bi bi-chevron-right"></i> <a href="#">О нас</a></li>
                     </ul>
                 </div>
-                <div id="contact" class="col-lg-3 col-md-12 footer-contact text-center text-md-start"><h4>Контакты</h4>
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start"><h4>Контакты</h4>
                     <p><strong>Email:</strong> <a href="mailto:saudaspace@gmail.com"> saudaspace@gmail.com</a><br></p>
                 </div>
             </div>
