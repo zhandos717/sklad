@@ -35,8 +35,8 @@ class SaleService
                 'view'           => isset($sale->fiscal_receipt['data']['link']) ? file_get_contents(
                     $sale->fiscal_receipt['data']['link']
                 ) : '<p>Не удалось фискализировать продажу</p>',
-                'link'           => $sale->fiscal_receipt['data']['link'],
-                'receipt_number' => $sale->fiscal_receipt['data']['receipt_number'],
+                'link'           => $sale->fiscal_receipt['data']['link'] ?? null,
+                'receipt_number' => $sale->fiscal_receipt['data']['receipt_number'] ?? null,
             ];
         }
 
