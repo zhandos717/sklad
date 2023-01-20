@@ -16,13 +16,13 @@ class SaleService
         private CashboxService $cashboxService,
         private CustomerOrderRequest $customerOrder,
         private ProductRequest $product
-    ) {
+    ){
     }
 
     /**
      * @throws \Exception
      */
-    public function fiscalize(string $accountId, string $objectId): array|string
+    public function fiscalize(string $accountId, string $objectId): array | string
     {
         $moySklad = MoySkladConfig::whereAccountId($accountId)->first();
 
@@ -30,10 +30,11 @@ class SaleService
 
         $totalSum = $rows->sum(fn($row) => $row->price * $row->quantity / 100);
 
-        if($sale = Sale::where('order_id',$objectId)->first()){
-
+        if ($sale = Sale::where('order_id', $objectId)->first()) {
             return [
-                'view'           => file_get_contents($sale->fiscal_receipt['data']['link']),
+                'view'           => isset($sale->fiscal_receipt['data']['link']) ? file_get_contents(
+                    $sale->fiscal_receipt['data']['link']
+                ) : '<p>Не удалось фискализировать продажу</p>',
                 'link'           => $sale->fiscal_receipt['data']['link'],
                 'receipt_number' => $sale->fiscal_receipt['data']['receipt_number'],
             ];
@@ -47,7 +48,7 @@ class SaleService
         ]);
 
 
-        $items = $rows->map(function ($item) use ($sale) {
+        $items = $rows->map(function ($item) use ($sale){
             $path = explode('/', $item->assortment->meta->href);
             $objectId = end($path);
             $item->product = $this->product->setObject($objectId)->content();
