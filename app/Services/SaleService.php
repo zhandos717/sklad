@@ -30,8 +30,12 @@ class SaleService
 
         $totalSum = $rows->sum(fn($row) => $row->price * $row->quantity / 100);
 
-        $sale = Sale::where('order_id', $objectId)->first();
-
+        $sale = Sale::firstOrCreate(['order_id' => $objectId],
+            [
+                'price'               => $totalSum,
+                'type'                => CashboxService::RECEIPT_TYPE_SALE,
+                'moy_sklad_config_id' => $moySklad->id
+            ]);
 
         if (isset($sale->fiscal_receipt)) {
             return [
@@ -43,12 +47,6 @@ class SaleService
             ];
         }
 
-        $sale = Sale::create([
-            'order_id'            => $objectId,
-            'price'               => $totalSum,
-            'type'                => CashboxService::RECEIPT_TYPE_SALE,
-            'moy_sklad_config_id' => $moySklad->id
-        ]);
 
         $items = $rows->map(function ($item) use ($sale){
             $path = explode('/', $item->assortment->meta->href);
