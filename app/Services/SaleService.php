@@ -30,7 +30,10 @@ class SaleService
 
         $totalSum = $rows->sum(fn($row) => $row->price * $row->quantity / 100);
 
-        if ($sale = Sale::where('order_id', $objectId)->first()) {
+        $sale = Sale::where('order_id', $objectId)->first();
+
+
+        if (isset($sale->fiscal_receipt)) {
             return [
                 'view'           => isset($sale->fiscal_receipt['data']['link']) ? file_get_contents(
                     $sale->fiscal_receipt['data']['link']
