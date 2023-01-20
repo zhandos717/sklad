@@ -47,7 +47,6 @@ class SaleService
             'moy_sklad_config_id' => $moySklad->id
         ]);
 
-
         $items = $rows->map(function ($item) use ($sale){
             $path = explode('/', $item->assortment->meta->href);
             $objectId = end($path);
