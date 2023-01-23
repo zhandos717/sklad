@@ -46,15 +46,6 @@
                 oReq.open("GET", '/widgets/get-item?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
                 oReq.send();
 
-                window.setTimeout(function () {
-                    const sendingMessage = {
-                        name: "OpenFeedback",
-                        correlationId: receivedMessage.messageId
-                    };
-                    logSendingMessage(sendingMessage);
-                    hostWindow.postMessage(sendingMessage, '*');
-
-                }, 200);
             }
         });
 
