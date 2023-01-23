@@ -32,29 +32,31 @@
 
             logReceivedMessage(receivedMessage);
 
-            if (receivedMessage.name === 'Open') {
+            if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
                 const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
                     window.document.getElementById("table").innerHTML = this.responseText;
                 });
 
-                document.getElementById("objectId").value = receivedMessage.objectId;
-
-                oReq.open("GET", '/widgets/get-item?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
-                oReq.send();
-
-                console.log(receivedMessage)
-
-                window.setTimeout(function () {
-                    const sendingMessage = {
+                var oReq = new XMLHttpRequest();
+                oReq.addEventListener("load", function() {
+                    window.document.getElementById("object").innerHTML = this.responseText;
+                    prepareButtons();
+                    var sendingMessage = {
                         name: "OpenFeedback",
                         correlationId: receivedMessage.messageId
                     };
                     logSendingMessage(sendingMessage);
                     hostWindow.postMessage(sendingMessage, '*');
-                }, 200);
+                });
+                
+                document.getElementById("objectId").value = receivedMessage.objectId;
+
+                oReq.open("GET", '/widgets/get-item?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
+                oReq.send();
             }
         });
+
 
         function logReceivedMessage(msg) {
             logMessage("→ Received", msg)
