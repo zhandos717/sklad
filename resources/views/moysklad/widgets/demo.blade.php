@@ -29,14 +29,20 @@
 
         window.addEventListener("message", function (event) {
             const receivedMessage = event.data;
+
+            logReceivedMessage(receivedMessage);
+
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
                 var oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function() {
                     window.document.getElementById("table").innerHTML = this.responseText;
-                    hostWindow.postMessage({
+                    console.log(receivedMessage.messageId)
+                    var sendingMessage = {
                         name: "OpenFeedback",
                         correlationId: receivedMessage.messageId
-                    }, '*');
+                    };
+                    logSendingMessage(sendingMessage);
+                    hostWindow.postMessage(sendingMessage, '*');
                 });
                 
                 document.getElementById("objectId").value = receivedMessage.objectId;
@@ -45,6 +51,7 @@
                 oReq.send();
             }
         });
+
 
         function logReceivedMessage(msg) {
             logMessage("→ Received", msg)
@@ -62,6 +69,7 @@
         function body() {
             return window.document.body;
         }
+
 
         function send(e, form) {
             document.querySelector('#doing-popup').classList.toggle('hidden')
