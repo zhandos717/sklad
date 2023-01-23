@@ -33,11 +33,6 @@
             logReceivedMessage(receivedMessage);
 
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
-                const oReq = new XMLHttpRequest();
-                oReq.addEventListener("load", function () {
-                    window.document.getElementById("table").innerHTML = this.responseText;
-                });
-
                 var oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function() {
                     window.document.getElementById("object").innerHTML = this.responseText;
