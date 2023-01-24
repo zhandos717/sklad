@@ -58,7 +58,7 @@
 
             logReceivedMessage(receivedMessage);
 
-            logReceivedMessage(scrollHeight);
+            console.log(scrollHeight);
 
 
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
