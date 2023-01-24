@@ -59,7 +59,7 @@
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
                 const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
-                    window.document.getElementById("table").innerHTML = this.responseText;
+                   // window.document.getElementById("table").innerHTML = this.responseText;
                     console.log(receivedMessage.messageId)
                     const sendingMessage = {
                         name: "OpenFeedback",
