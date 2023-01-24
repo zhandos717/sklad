@@ -44,8 +44,8 @@
     <script>
 
         (function () {
-            var h = -1;
-            var win = null;
+            let h = -1;
+            let win = null;
 
             function sendExpand() {
                 if (typeof win != 'undefined' && win) {
