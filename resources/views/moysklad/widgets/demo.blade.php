@@ -5,7 +5,7 @@
     <style>
 
         html {
-            height: 100%;
+            height: 250px;
             overflow: scroll;
         }
 
