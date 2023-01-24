@@ -9,6 +9,17 @@
             overflow: scroll;
         }
 
+        body {
+            line-height: 1;
+            font-size: 12px;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-y: scroll !important;
+            overflow-x: hidden !important;
+        }
+
         #fiscal-receipt {
             display: none;
         }
