@@ -32,9 +32,7 @@
 @section('js')
     <script>
         const hostWindow = window.parent;
-
-        const uid = "admin@cafiso2017";
-        const accountId = {{$accountId??''}};
+        const accountId = '{{$accountId??''}}';
         const entity = "customerorder";
         let objectId = "";
 
