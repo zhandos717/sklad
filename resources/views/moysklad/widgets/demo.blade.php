@@ -58,6 +58,9 @@
 
             logReceivedMessage(receivedMessage);
 
+            logReceivedMessage(scrollHeight);
+
+
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
                 const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
