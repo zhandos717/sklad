@@ -42,6 +42,31 @@
 
 @section('js')
     <script>
+
+        (function () {
+            var h = -1;
+            var win = null;
+
+            function sendExpand() {
+                if (typeof win != 'undefined' && win) {
+                    var scrollHeight = document.documentElement.getBoundingClientRect().height;
+                    if (scrollHeight !== h) {
+                        h = scrollHeight;
+                        const sendObject = {
+                            height: h
+                        };
+                        win.postMessage(sendObject, '*');
+                    }
+                }
+            }
+
+            window.addEventListener('load', function () {
+                win = parent;
+                sendExpand();
+            });
+            setInterval(sendExpand, 250);
+        })();
+
         const hostWindow = window.parent;
         const accountId = '{{$accountId??''}}';
         const entity = "customerorder";
@@ -83,7 +108,7 @@
         }
 
         function logMessage(prefix, msg) {
-            var messageAsString = JSON.stringify(msg);
+            const messageAsString = JSON.stringify(msg);
             console.log(prefix + " message: " + messageAsString);
         }
 
