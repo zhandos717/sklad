@@ -43,33 +43,10 @@
 @section('js')
     <script>
 
-        (function () {
-            let h = -1;
-            let win = null;
-
-            function sendExpand() {
-                if (typeof win != 'undefined' && win) {
-                    var scrollHeight = document.documentElement.getBoundingClientRect().height;
-                    if (scrollHeight !== h) {
-                        h = scrollHeight;
-                        const sendObject = {
-                            height: h
-                        };
-                        win.postMessage(sendObject, '*');
-                    }
-                }
-            }
-
-            window.addEventListener('load', function () {
-                win = parent;
-                sendExpand();
-            });
-            setInterval(sendExpand, 250);
-        })();
-
         const hostWindow = window.parent;
         const accountId = '{{$accountId??''}}';
         const entity = "customerorder";
+        const scrollHeight = document.documentElement.getBoundingClientRect().height;
         let objectId = "";
 
         window.addEventListener("message", function (event) {
@@ -88,6 +65,7 @@
                     console.log(receivedMessage.messageId)
                     const sendingMessage = {
                         name: "OpenFeedback",
+                        height: scrollHeight,
                         correlationId: receivedMessage.messageId
                     };
                     logSendingMessage(sendingMessage);
