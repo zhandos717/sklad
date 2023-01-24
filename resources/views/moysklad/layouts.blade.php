@@ -18,14 +18,11 @@
             crossorigin="anonymous"></script>
     <script src="/assets/js/uikit.js"></script>
     @yield('styles')
+    @yield('js')
 </head>
 <body>
 <div class="container">
     @yield('content')
 </div>
-<script type="text/javascript"
-        src="https://online.moysklad.ru/js/ns/appstore/app/v1/moysklad-iframe-expand-2.js"></script>
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-@yield('js')
 </body>
 </html>

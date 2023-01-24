@@ -126,7 +126,8 @@
     <div class="alert alert-success hidden">
         Операция фискализирована!
     </div>
-    <div id="load"><img src="{{asset('assets/img/load.gif')}}" style="vertical-align:middle;"/>
+    <div id="load">
+        <img src="{{asset('assets/img/load.gif')}}" style="vertical-align:middle;"/>
         Выполняется "<span id="doing-action-name"></span>".
     </div>
 
