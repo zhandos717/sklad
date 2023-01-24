@@ -63,6 +63,9 @@
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
                 const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
+
+                    document.querySelector('#load').classList.add('hidden')
+
                     window.document.getElementById("table").innerHTML = this.responseText;
                     console.log(receivedMessage.messageId)
                     const sendingMessage = {
@@ -123,6 +126,10 @@
     <div class="alert alert-success hidden">
         Операция фискализирована!
     </div>
+    <div id="load"><img src="{{asset('assets/img/load.gif')}}" style="vertical-align:middle;"/>
+        Выполняется "<span id="doing-action-name"></span>".
+    </div>
+
     <form method="POST" onsubmit="send(event,this)" action="{{route('sale')}}" id="click-form" method="POST">
         <label>
             <input name="uuid" value="{{ \Ramsey\Uuid\Uuid::uuid4()->toString()  }}" hidden="">
