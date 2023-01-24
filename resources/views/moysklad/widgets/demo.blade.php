@@ -46,7 +46,6 @@
         const hostWindow = window.parent;
         const accountId = '{{$accountId??''}}';
         const entity = "customerorder";
-        const scrollHeight = document.documentElement.getBoundingClientRect().height;
         let objectId = "";
 
         window.addEventListener("message", function (event) {
@@ -58,7 +57,7 @@
 
             logReceivedMessage(receivedMessage);
 
-            console.log(scrollHeight);
+            console.log(document.documentElement.getBoundingClientRect().height);
 
 
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
@@ -68,7 +67,7 @@
                     console.log(receivedMessage.messageId)
                     const sendingMessage = {
                         name: "OpenFeedback",
-                        height: scrollHeight,
+                        height: document.documentElement.getBoundingClientRect().height,
                         correlationId: receivedMessage.messageId
                     };
                     logSendingMessage(sendingMessage);
