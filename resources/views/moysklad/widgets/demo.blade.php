@@ -54,15 +54,14 @@
 
             document.getElementById("objectId").value = objectId;
 
-
             logReceivedMessage(receivedMessage);
 
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
-                var oReq = new XMLHttpRequest();
+                const oReq = new XMLHttpRequest();
                 oReq.addEventListener("load", function () {
                     window.document.getElementById("table").innerHTML = this.responseText;
                     console.log(receivedMessage.messageId)
-                    var sendingMessage = {
+                    const sendingMessage = {
                         name: "OpenFeedback",
                         correlationId: receivedMessage.messageId
                     };
