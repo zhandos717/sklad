@@ -3,6 +3,12 @@
 
 @section('styles')
     <style>
+
+        html {
+            height: 100%;
+            overflow: scroll;
+        }
+
         #fiscal-receipt {
             display: none;
         }
@@ -27,14 +33,24 @@
     <script>
         const hostWindow = window.parent;
 
+        const uid = "admin@cafiso2017";
+        const accountId = {{$accountId??''}};
+        const entity = "customerorder";
+        let objectId = "";
+
         window.addEventListener("message", function (event) {
             const receivedMessage = event.data;
+
+            objectId = receivedMessage.objectId;
+
+            document.getElementById("objectId").value = objectId;
+
 
             logReceivedMessage(receivedMessage);
 
             if (receivedMessage.name === 'Open' || receivedMessage.name === 'Save') {
                 var oReq = new XMLHttpRequest();
-                oReq.addEventListener("load", function() {
+                oReq.addEventListener("load", function () {
                     window.document.getElementById("table").innerHTML = this.responseText;
                     console.log(receivedMessage.messageId)
                     var sendingMessage = {
@@ -44,10 +60,7 @@
                     logSendingMessage(sendingMessage);
                     hostWindow.postMessage(sendingMessage, '*');
                 });
-                
-                document.getElementById("objectId").value = receivedMessage.objectId;
-
-                oReq.open("GET", '/widgets/get-item?accountId={{$accountId??''}}&entity={{$entity}}&objectId=' + receivedMessage.objectId);
+                oReq.open("GET", `/widgets/get-item?accountId= ${accountId}&entity=${entity}&objectId=${objectId}`);
                 oReq.send();
             }
         });
@@ -62,7 +75,7 @@
         }
 
         function logMessage(prefix, msg) {
-            const messageAsString = JSON.stringify(msg);
+            var messageAsString = JSON.stringify(msg);
             console.log(prefix + " message: " + messageAsString);
         }
 
