@@ -30,7 +30,7 @@ class CashboxService
 
     private function httpClient(): PendingRequest
     {
-        return Http::baseUrl('https://dev.kassa.wipon.kz/')
+        return Http::baseUrl(config('services.cashbox.url'))
             ->contentType('application/json')
             ->withHeaders(['Idempotency-Key' => Uuid::uuid4()->toString()]);
     }
