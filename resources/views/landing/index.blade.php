@@ -6,7 +6,8 @@
     <title>Sauda Space</title>
     <meta content="Используйте Sauda Space для интеграции МойСклад с ТИС Prosklad<" name="description">
     <meta content="Мой склад Sauda Space" name="keywords">
-    <!-- Favicons -->
+    <!-- Favicons {{config('services.cashbox.url')}} -->
+
     <link href="{{ assert('assets/img/favicon.png')  }}" rel="icon">
     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
     <!-- Google Fonts -->
